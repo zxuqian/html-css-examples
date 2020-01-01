@@ -1,0 +1,305 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "open sans", sans-serif;
+  font-size: 14px;
+}
+
+ul {
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.flex {
+  display: flex;
+}
+
+.number {
+  font-family: Helvetica, sans-serif;
+  letter-spacing: 0.36px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.page {
+  width: 375px;
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* 头部 */
+
+.head-background {
+  background-color: #3b37de;
+  border-radius: 0 0 0 35px;
+}
+
+/* .head-background::before {
+  overflow: hidden;
+  content: "";
+  position: absolute;
+  display: block;
+  width: 540px;
+  height: 215px; */
+/* opacity: 0.7; */
+
+/* left: calc(-540px / 2);
+  top: calc(-215px / 2);
+  transform: scaleY(-1) rotate(44deg);
+  background-image: linear-gradient(
+    -68deg,
+    #3b37de 0%,
+    rgba(110, 108, 209, 0) 95%
+  ); */
+/* z-index: 150;
+} */
+
+.head {
+  padding: 36px 20px 20px 20px;
+  color: white;
+}
+
+.nav {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-button {
+  background: url("img/menu.svg");
+  width: 20px;
+  height: 19px;
+  border: none;
+}
+
+.profile {
+  align-items: center;
+}
+
+.profile-name {
+  margin-right: 16px;
+}
+
+.profile-image {
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+}
+
+.money {
+  margin-top: 30px;
+  justify-content: space-between;
+}
+
+.total {
+  opacity: 0.6;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.lib-icon-money {
+  display: inline-block;
+  background: url("img/lib.svg") no-repeat center center;
+  width: 18px;
+  height: 16px;
+}
+
+.money-number {
+  font-size: 26px;
+  margin-left: 4px;
+}
+
+.add-money {
+  width: 120px;
+  height: 44px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.add-money::before {
+  content: "";
+  display: inline-block;
+  background: url("img/plus.svg");
+  width: 12px;
+  height: 12px;
+  margin-right: 4px;
+  vertical-align: -1px;
+}
+
+.coin-types {
+  margin-top: 60px;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.icon {
+  display: inline-block;
+  background-size: 24px;
+  width: 24px;
+  height: 24px;
+  opacity: 0.6;
+}
+
+.btc-icon {
+  background-image: url("img/btc.svg");
+  transform: rotate(15deg);
+}
+
+.xrp-icon {
+  background-image: url("img/xrp.svg");
+}
+
+.lib-icon {
+  background-image: url("img/lib.svg");
+  background-repeat: no-repeat;
+}
+
+.ltc-icon {
+  background-image: url("img/ltc.svg");
+}
+
+.xpm-icon {
+  background-image: url("img/xpm.svg");
+}
+
+.coin-text {
+  font-weight: 600;
+  opacity: 0.6;
+  text-align: center;
+}
+
+.active {
+  position: relative;
+}
+
+.active .coin-text {
+  color: #3b37de;
+  opacity: 1;
+  position: relative;
+}
+
+.active .lib-icon {
+  position: relative;
+  background: url(img/lib-blue.svg) no-repeat center center;
+  opacity: 1;
+}
+
+.active::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  padding: 30px 18px;
+  left: -18px;
+  top: -24px;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+}
+
+.active::after {
+  content: "";
+  position: relative;
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: #3b37de;
+  border-radius: 50%;
+  margin: 6px auto -16px auto;
+}
+
+/** 简介 **/
+.intro {
+  padding: 0 20px;
+}
+
+.title-2 {
+  margin-top: 40px;
+  margin-bottom: 0px;
+}
+
+.intro-content {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.18px;
+  line-height: 25px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.readmore {
+  background: url("img/readmore.svg");
+  width: 225px;
+  height: 60px;
+  margin: 0 auto;
+}
+
+/** 交易 **/
+.transactions {
+  padding: 0 20px;
+}
+.transfer {
+  margin-top: 14px;
+}
+
+.transaction-item {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.transaction-profile {
+  border-radius: 11px;
+  display: inline-block;
+}
+
+.transaction-info {
+  align-items: center;
+}
+
+.transfer-info {
+  margin-left: 14px;
+}
+
+.friend-name,
+.transaction-amount {
+  font-size: 18px;
+  color: rgba(34, 34, 34, 1);
+  line-height: 25px;
+  font-weight: 600;
+}
+
+.transctions-count {
+  color: rgba(0, 0, 0, 0.5);
+  line-height: 25px;
+}
+
+.lib-icon-black {
+  background-image: url("img/lib-black.svg");
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 13px;
+  margin-right: 6px;
+}
+
+.transaction-amount-container {
+  border: 1px solid rgba(222, 222, 222, 1);
+  border-radius: 8px;
+  width: 116px;
+  height: 41px;
+  align-items: center;
+  justify-content: center;
+}

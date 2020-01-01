@@ -1,0 +1,70 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "PingFang SC";
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vh;
+  height: 100vh;
+  background: #2f3542;
+}
+
+.button-wrapper {
+  position: relative;
+  width: 240px;
+  height: 60px;
+  text-align: center;
+}
+
+.rectangle {
+  stroke-width: 8px;
+  stroke: #ff6348;
+  fill: transparent;
+  /* Core part of the animation */
+  stroke-dasharray: 100 500;
+  stroke-dashoffset: -372;
+}
+
+.btn {
+  color: white;
+  font-size: 18px;
+  letter-spacing: 6px;
+  position: relative;
+  top: -48px;
+}
+
+@keyframes extend {
+  to {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 0;
+    stroke-width: 2;
+  }
+}
+
+.button-wrapper:hover .rectangle {
+  animation: 0.5s extend linear forwards;
+}
+
+/* if reverse animation is needed, use transition instead of keyframes */
+
+/* .rectangle {
+  stroke-width: 8px;
+  stroke: #ff6348;
+  fill: transparent;
+  stroke-dasharray: 100 500;
+  stroke-dashoffset: -372;
+  transition-property: all;
+  transition-duration: 0.5s;
+} */
+/* 
+.button-wrapper:hover .rectangle {
+
+  stroke-dasharray: 600;
+  stroke-dashoffset: 0;
+  stroke-width: 2;
+} */

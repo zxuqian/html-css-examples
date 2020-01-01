@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="19px" viewBox="0 0 22 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M0,0 L0,251.002354 C0,270.33102 15.6655036,286 35.0053814,286 L375,286 L375,0 L0,0 Z" id="path-1"></path>
+        <rect id="path-3" x="0" y="0" width="60" height="104" rx="16"></rect>
+        <filter x="-43.3%" y="-21.2%" width="186.7%" height="150.0%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="8" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="home" transform="translate(-179.000000, -222.000000)">
+            <rect id="bg" fill="#FFFFFF" x="0" y="0" width="375" height="812"></rect>
+            <g id="header" transform="translate(-252.000000, -208.000000)">
+                <g id="bg">
+                    <g id="Nav-bar">
+                        <g id="Rectangle" transform="translate(252.000000, 208.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <use id="Mask" fill="#3B37DE" xlink:href="#path-1"></use>
+                        </g>
+                    </g>
+                </g>
+                <g id="crypto" transform="translate(282.000000, 295.000000)">
+                    <g id="Group-2" transform="translate(130.000000, 111.000000)">
+                        <g id="Rectangle">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                        </g>
+                        <g id="3491" transform="translate(19.000000, 24.000000)" fill="#3B37DE">
+                            <path d="M1.71445687,4.69759148 C3.89845687,2.82209148 5.62370687,1.33934148 10.3042069,3.98409148 C12.5527069,5.25434148 14.3664569,5.73384148 15.8764569,5.73359158 C18.5202069,5.73359158 20.2329569,4.26284148 21.7144569,2.98984148 C22.2427069,2.53634148 20.6332069,0.581841478 20.1049569,1.03609148 C17.9212069,2.91234148 16.1962069,4.39459148 11.5142069,1.74934148 C5.32945687,-1.74440852 2.43270687,0.744341478 0.104956866,2.74359148 C-0.423043134,3.19734148 1.18595687,5.15159148 1.71445687,4.69759148 Z M20.1049569,7.41959148 C17.9212069,9.29534148 16.1962069,10.7778415 11.5142069,8.13284148 C5.32945687,4.63884148 2.43270687,7.12759148 0.104956866,9.12709148 C-0.423043134,9.58109148 1.18620687,11.5348415 1.71445687,11.0808415 C3.89845687,9.20509148 5.62370687,7.72259148 10.3042069,10.3670915 C12.5527069,11.6373415 14.3664569,12.1170915 15.8764569,12.1170915 C18.5202069,12.1170915 20.2329569,10.6460915 21.7144569,9.37334148 C22.2427069,8.91934148 20.6334569,6.96534148 20.1049569,7.41959148 Z M20.1049569,13.8023415 C17.9212069,15.6783415 16.1962069,17.1605915 11.5142069,14.5158415 C5.32945687,11.0218415 2.43270687,13.5105915 0.104956866,15.5100915 C-0.423043134,15.9638415 1.18620687,17.9180915 1.71445687,17.4640915 C3.89845687,15.5878415 5.62345687,14.1060915 10.3042069,16.7500915 C12.5527069,18.0208415 14.3664569,18.5000915 15.8764569,18.5000915 C18.5202069,18.5000915 20.2329569,17.0290915 21.7144569,15.7565915 C22.2427069,15.3028415 20.6334569,13.3488415 20.1049569,13.8023415 Z" id="Shape"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

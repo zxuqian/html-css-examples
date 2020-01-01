@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Static Template</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page">
+        <!-- 头部 -->
+        <div class="head-background">
+          <div class="head">
+            <!-- 导航 -->
+            <div class="nav flex">
+              <button class="nav-button"></button>
+              <div class="profile flex">
+                <span class="profile-name">Kyle Ortega</span>
+                <img
+                  src="https://images.pexels.com/photos/1270076/pexels-photo-1270076.jpeg?cs=srgb&dl=adult-barefoot-black-and-white-1270076.jpg&fm=jpg"
+                  width="50"
+                  alt=""
+                  class="profile-image"
+                />
+              </div>
+            </div>
+            <!-- 余额 -->
+            <div class="money flex">
+              <div class="balance">
+                <div class="total">
+                  Total Balance
+                </div>
+                <div class="total-money">
+                  <span class="lib-icon-money"></span>
+                  <span class="money-number number">1,008</span>
+                </div>
+              </div>
+              <button class="add-money">
+                Add Money
+              </button>
+            </div>
+            <!-- 币种 -->
+            <div class="coin-types flex">
+              <div class="btc">
+                <div class="btc-icon icon"></div>
+                <div class="coin-text">
+                  BTC
+                </div>
+              </div>
+              <div class="xrp">
+                <div class="xrp-icon icon"></div>
+                <div class="coin-text">
+                  XRP
+                </div>
+              </div>
+              <div class="lib active">
+                <div class="lib-icon icon"></div>
+                <div class="coin-text">
+                  LiB
+                </div>
+              </div>
+              <div class="ltc">
+                <div class="ltc-icon icon"></div>
+                <div class="coin-text">
+                  LTC
+                </div>
+              </div>
+              <div class="xpm">
+                <div class="xpm-icon icon"></div>
+                <div class="coin-text">
+                  XPM
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 简介 -->
+        <div class="intro">
+          <h2 class="title-2">
+            About libra
+          </h2>
+          <p class="intro-content">
+            Facebook has finally revealed the details of its cryptocurrency,
+            Libra, which will let you buy things or send money to people with
+            nearly zero fees…
+          </p>
+          <div class="readmore"></div>
+        </div>
+        <!-- 交易 -->
+        <div class="transactions">
+          <h2 class="title-2 transfer">
+            Transactions with friends
+          </h2>
+          <ul class="transaction-list">
+            <li class="transaction-item">
+              <div class="transaction-info flex">
+                <img
+                  src="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                  alt="friend-image"
+                  class="transaction-profile"
+                  width="50"
+                  height="50"
+                />
+                <div class="transfer-info">
+                  <div class="friend-name">
+                    Jordan Woods
+                  </div>
+                  <div class="transactions-count">
+                    24 transactions
+                  </div>
+                </div>
+              </div>
+              <div class="transaction-amount-container flex">
+                <div class="lib-icon-black"></div>
+                <div class="transaction-amount">
+                  3,192
+                </div>
+              </div>
+            </li>
+            <li class="transaction-item">
+              <div class="transaction-info flex">
+                <img
+                  src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                  alt="friend-image"
+                  width="50"
+                  height="50"
+                  class="transaction-profile"
+                />
+                <div class="transfer-info">
+                  <div class="friend-name">
+                    Lizzie West
+                  </div>
+                  <div class="transactions-count">
+                    22 transactions
+                  </div>
+                </div>
+              </div>
+              <div class="transaction-amount-container flex">
+                <div class="lib-icon-black"></div>
+                <div class="transaction-amount">
+                  2,726
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

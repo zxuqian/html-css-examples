@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="225px" height="68px" viewBox="0 0 225 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="18" cy="18" r="18"></circle>
+        <filter x="-77.8%" y="-55.6%" width="255.6%" height="255.6%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="8" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="8" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.06 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="home" transform="translate(-75.000000, -434.000000)">
+            <rect id="bg" fill="#FFFFFF" x="0" y="0" width="375" height="812"></rect>
+            <g id="arrow" transform="translate(75.000000, 442.000000)">
+                <rect id="Separator" fill-opacity="0.1" fill="#3B37DE" x="0" y="18" width="225" height="1"></rect>
+                <g id="button-more" transform="translate(94.000000, 0.000000)">
+                    <g id="Oval">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <circle stroke-opacity="0.1" stroke="#3B37DE" stroke-width="1" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd" cx="18" cy="18" r="17.5"></circle>
+                    </g>
+                    <path d="M18.3636364,24 L19.1294545,23.2718313 L24.8185713,17.8536248 C25.3350912,17.3617012 25.3967574,16.5591577 24.9614545,15.9940975 C24.5806274,15.4997512 23.8711592,15.4077259 23.376813,15.788553 C23.3455624,15.8126274 23.315594,15.8383218 23.287031,15.8655308 L18.3636364,20.55552 L18.3636364,20.55552 L13.4402417,15.8655308 C12.9884092,15.4351184 12.2732083,15.4524829 11.8427959,15.9043155 C11.815587,15.9328785 11.7898925,15.9628469 11.7658182,15.9940975 C11.3305153,16.5591577 11.3921816,17.3617012 11.9087014,17.8536248 L17.5978182,23.2718313 L17.5978182,23.2718313 L18.3636364,24 Z" id="Shape" fill="#3B37DE"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

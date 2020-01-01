@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M0,0 L0,251.002354 C0,270.33102 15.6655036,286 35.0053814,286 L375,286 L375,0 L0,0 Z" id="path-1"></path>
+        <linearGradient x1="112.34245%" y1="71.5385301%" x2="2.29664763%" y2="49.7083632%" id="linearGradient-3">
+            <stop stop-color="#3B37DE" offset="0%"></stop>
+            <stop stop-color="#6E6CD1" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="112.34245%" y1="56.827022%" x2="2.29664763%" y2="49.9075605%" id="linearGradient-4">
+            <stop stop-color="#3B37DE" offset="0%"></stop>
+            <stop stop-color="#6E6CD1" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="home" transform="translate(-248.000000, -104.000000)">
+            <rect id="bg" fill="#FFFFFF" x="0" y="0" width="375" height="812"></rect>
+            <g id="header" transform="translate(-252.000000, -208.000000)">
+                <g id="bg">
+                    <g id="Nav-bar">
+                        <g id="Rectangle" transform="translate(252.000000, 208.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <use id="Mask" fill="#3B37DE" xlink:href="#path-1"></use>
+                            <polygon fill="url(#linearGradient-3)" opacity="0.7" mask="url(#mask-2)" transform="translate(381.896485, 294.779226) scale(1, -1) rotate(42.000000) translate(-381.896485, -294.779226) " points="228.896485 187.04642 534.728935 187.799423 534.896485 402.512032 229.064035 401.759028"></polygon>
+                        </g>
+                        <polygon id="Rectangle-Copy" fill="url(#linearGradient-4)" opacity="0.7" transform="translate(270.324504, 266.276105) scale(1, -1) rotate(44.000000) translate(-270.324504, -266.276105) " points="-1.43441785 158.543299 541.785824 159.296303 542.083427 374.008911 -1.13681531 373.255908"></polygon>
+                    </g>
+                </g>
+                <g id="crypto" transform="translate(282.000000, 295.000000)" fill="#FFFFFF">
+                    <g id="button" transform="translate(205.000000, 0.000000)">
+                        <rect id="Rectangle" fill-opacity="0.1" x="0" y="0" width="120" height="44" rx="10"></rect>
+                        <g id="Group" transform="translate(13.000000, 14.000000)">
+                            <path d="M6,3 C6.47338693,3 6.85714286,3.38375593 6.85714286,3.85714286 L6.857,8.142 L11.1428571,8.14285714 C11.6162441,8.14285714 12,8.52661307 12,9 C12,9.47338693 11.6162441,9.85714286 11.1428571,9.85714286 L6.857,9.857 L6.85714286,14.1428571 C6.85714286,14.6162441 6.47338693,15 6,15 C5.52661307,15 5.14285714,14.6162441 5.14285714,14.1428571 L5.142,9.857 L0.857142857,9.85714286 C0.383755929,9.85714286 -2.55407722e-15,9.47338693 -2.6120504e-15,9 C-2.67002357e-15,8.52661307 0.383755929,8.14285714 0.857142857,8.14285714 L5.142,8.142 L5.14285714,3.85714286 C5.14285714,3.38375593 5.52661307,3 6,3 Z" id="Combined-Shape"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
