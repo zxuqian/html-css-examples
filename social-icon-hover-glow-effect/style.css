@@ -82,3 +82,13 @@ li a:hover::before {
 li a:hover .svg-icon {
   filter: invert(1) drop-shadow(0 0 2px rgb(37, 204, 247));
 }
+
+@media screen and (max-width: 512px) {
+  ul {
+    flex-direction: column;
+  }
+
+  ul li {
+    margin: 18px 0;
+  }
+}

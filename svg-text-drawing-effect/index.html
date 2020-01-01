@@ -2,37 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <meta
-      http-equiv="X-UA-Compatible"
-      content="ie=edge"
-    />
-    <link
-      rel="stylesheet"
-      href="style.css"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
     <title>Static Template</title>
   </head>
   <body>
     <div class="container">
-      <svg
-        width="500"
-        height="250"
-        class="text"
-      >
+      <svg width="375" height="250" class="text">
         <!-- 定义渐变颜色 -->
         <defs>
-          <linearGradient
-            id="geekColor"
-            gradientTransform="rotate(90)"
-          >
-            <stop
-              offset="0%"
-              stop-color="#91bd3a"
-            >
+          <linearGradient id="geekColor" gradientTransform="rotate(90)">
+            <stop offset="0%" stop-color="#91bd3a">
               <!-- 渐变动画 -->
               <animate
                 attributeName="stop-color"
@@ -43,10 +24,7 @@
               ></animate>
             </stop>
 
-            <stop
-              offset="100%"
-              stop-color="#12cad6"
-            >
+            <stop offset="100%" stop-color="#12cad6">
               <animate
                 attributeName="stop-color"
                 values="#12cad6;#91bd3a;#12cad6"
@@ -58,11 +36,7 @@
           </linearGradient>
         </defs>
 
-        <text
-          class="logo_text"
-          x="100"
-          y="100"
-        >
+        <text class="logo_text" x="0" y="100">
           峰华前端
         </text>
       </svg>

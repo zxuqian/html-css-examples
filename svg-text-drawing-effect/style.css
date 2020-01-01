@@ -7,11 +7,12 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100vw;
 }
 
 .logo_text {
   font-family: "PingFang SC";
-  font-size: 96px;
+  font-size: 84px;
   fill: none;
   stroke: url("#geekColor");
   stroke-width: 1;

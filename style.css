@@ -70,3 +70,13 @@ li a {
     #ffafbd
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+@media screen and (max-width: 512px) {
+  .card {
+    min-width: 350px;
+    padding: 4rem;
+  }
+  li a {
+    padding: 1rem;
+  }
+}
