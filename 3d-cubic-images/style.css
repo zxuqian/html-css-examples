@@ -1,0 +1,98 @@
+html,
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #2f3542;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.cube {
+  width: 250px;
+  height: 250px;
+  transform-style: preserve-3d;
+  transform-origin: 125px 125px 0;
+  animation: rotate-cube 10s ease-in-out infinite;
+}
+
+.cube > div {
+  width: 250px;
+  height: 250px;
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.8;
+  position: absolute;
+  box-shadow: inset 0 0 4px 2px rgba(106, 106, 106, 0.4);
+}
+
+/* 前 */
+.cube .img1 {
+  background-image: url("https://images.pexels.com/photos/274131/pexels-photo-274131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  transform: rotateY(0deg) translateZ(125px);
+}
+
+/* 右 */
+.cube .img2 {
+  background-image: url("https://images.pexels.com/photos/1480690/pexels-photo-1480690.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  transform: rotateY(90deg) translateZ(125px);
+}
+
+/* 左 */
+.cube .img3 {
+  background-image: url("https://images.pexels.com/photos/36487/above-adventure-aerial-air.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  transform: rotateY(-90deg) translateZ(125px);
+}
+
+/* 下 */
+.cube .img4 {
+  background-image: url("https://images.pexels.com/photos/338713/pexels-photo-338713.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  transform: rotateX(90deg) translateZ(125px);
+}
+
+/* 上 */
+.cube .img5 {
+  background-image: url("https://images.pexels.com/photos/325044/pexels-photo-325044.jpeg?cs=srgb&dl=close-up-of-fish-over-black-background-325044.jpg&fm=jpg");
+  transform: rotateX(-90deg) translateZ(125px);
+}
+
+/* 后 */
+.cube .img6 {
+  background-image: url("https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  transform: rotateY(180deg) translateZ(125px);
+}
+
+@keyframes rotate-cube {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  20% {
+    /* 右边图片 */
+    transform: rotateY(-90deg);
+  }
+  40% {
+    /* 上 */
+    transform: rotateX(-90deg);
+  }
+  60% {
+    /* 左 */
+    transform: rotateY(90deg);
+  }
+  80% {
+    /* 下 */
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+}
