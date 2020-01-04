@@ -22,7 +22,9 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  width: 100vw;
   background: #c0c0aa; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
@@ -39,7 +41,7 @@ main {
 .card {
   border-radius: 12px;
   min-width: 450px;
-  min-height: 500px;
+  margin: 40px;
   padding: 40px;
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
   background: rgba(255, 255, 255, 0.3);

@@ -1,0 +1,96 @@
+html,
+body {
+  margin: 0;
+  font-family: Helvetica, "PingFang SC", "Microsoft Yahei", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  /* 需隐藏最外层不可见区域以使视差生效 */
+  overflow: hidden;
+}
+
+body {
+  /* 开启3d空间，数值越小3D效果越大 */
+  perspective: 1px;
+  /* 在3D空间进行transform */
+  transform-style: preserve-3d;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* 需要设置高度以使时差生效 */
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transform-style: inherit;
+  /* 需要设置高度以使时差生效 */
+  height: 100vh;
+}
+
+header h1 {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 1em 4em;
+  font-size: 3em;
+}
+
+header::before {
+  position: absolute;
+  content: "";
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url(https://images.pexels.com/photos/2310815/pexels-photo-2310815.jpeg?cs=srgb&dl=photo-of-opened-metal-windows-2310815.jpg&fm=jpg);
+  background-size: cover;
+  /* 核心，按z轴向远处移动1px，大小会缩小一倍，使用scale放大到原图大小 */
+  transform: translateZ(-1px) scale(2);
+  z-index: -1;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background-color: #222f3e;
+}
+
+article {
+  width: 90vw;
+  max-width: 960px;
+  padding: 6em 0;
+  color: white;
+  font-size: 18px;
+  text-align: justify;
+  letter-spacing: 0.075em;
+  text-indent: 2em;
+  line-height: 1.8em;
+}
+
+/* 屏幕适配 */
+
+@media screen and (max-width: 1024px) {
+  header h1 {
+    font-size: 2.5em;
+    padding: 1em 1.5em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header h1 {
+    font-size: 1.5em;
+    padding: 1em 1em;
+  }
+
+  article {
+    font-size: 1em;
+  }
+}
