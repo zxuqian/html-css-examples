@@ -1,0 +1,77 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow-y: auto;
+  /* https://drafts.csswg.org/css-transforms-2/#perspective-matrix-computation */
+  perspective: 50px;
+  /* background-color: rgba(200, 200, 200, 0.3); */
+  transform-style: preserve-3d;
+  /* transform: rotateX(-75deg); */
+}
+
+.wrapper {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background-color: rgba(200, 200, 200, 0.3);
+}
+
+.front,
+.back {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+}
+
+.front {
+  background-color: rgba(7, 223, 184, 0.4);
+  transform: translateZ(-50px) translateX(-500px) scale(2);
+}
+
+.back {
+  background-color: rgba(255, 163, 83, 0.4);
+  transform: translateZ(-350px) translateX(3000px) scale(8);
+  /* transform-origin: center center -300px; */
+  /* animation: 5s linear rotate infinite; */
+  /* animation: 5s linear translateBack infinite; */
+}
+
+@keyframes translateBack {
+  from {
+    transform: rotateY(0deg) translateZ(-1px);
+  }
+  to {
+    transform: rotateY(80deg) translateZ(-1px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.text {
+  background-color: #448cb8;
+  padding: 2em;
+  font-family: "PingFang SC";
+}
+p {
+  width: 200px;
+  color: white;
+}
