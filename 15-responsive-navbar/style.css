@@ -84,12 +84,12 @@ nav {
 
     /* 动画 */
     transform: translateX(100%);
-    transition: 0.4s ease-in-out;
   }
 
   /* 菜单打开时，滑到初始位置 */
   .nav-menu.open {
     transform: translateX(0);
+    transition: 0.4s ease-in-out;
   }
 
   /* 每个菜单项默认看不到，向右移动20象素 */
