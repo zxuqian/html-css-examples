@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "PingFang SC", "Microsoft Yahei", sans-serif;
+}
+
+/* 设置轮播组件占满整个屏幕 */
+.image-slider {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* 设置每个幻灯片占满父容器 */
+.image-slider .slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: all linear 0.8s;
+  overflow: hidden;
+}
+
+/* 设置图片样式 */
+.image-slider .image {
+  /* 设置图片大小 */
+  width: 100%;
+  height: 100%;
+  /* 图片自适应，保持比例占满屏幕 */
+  object-fit: cover;
+  /* 绝对布局，z-index 50放到文字下方 */
+  position: absolute;
+  z-index: 50;
+}
+
+/* 设置文本样式 */
+.image-slider .slide .content {
+  position: absolute;
+  /* 放在图片上方 */
+  z-index: 100;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 48px;
+  bottom: 0;
+  width: 50%;
+}
+
+/* 标题距下方24px */
+.image-slider .slide .content h1 {
+  margin-bottom: 24px;
+}
+
+/* 控制按钮 */
+#prev,
+#next {
+  position: absolute;
+  z-index: 150;
+  width: 80px;
+  height: 80px;
+  font-size: 48px;
+  color: white;
+  /* 居中 */
+  text-align: center;
+  line-height: 80px;
+
+  /* 圆角 */
+  border-radius: 50%;
+  /* 背景 */
+  background-color: rgba(0, 0, 0, 0.6);
+
+  /* 在组件中的位置 */
+  top: calc(50% - 24px);
+  left: 50px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+/* 下一张按钮的位置，靠右 */
+#next {
+  left: unset;
+  right: 50px;
+}
+
+/* 鼠标移到按钮上时改变背景和字体颜色 */
+#prev:hover,
+#next:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: black;
+}
+
+/* 隐藏其他幻灯片 */
+.image-slider .slide {
+  opacity: 0;
+}
+
+/* 设置当前正在播放的幻灯片的透明度为1 */
+.image-slider .slide.current {
+  opacity: 1;
+}
+
+/* 图片文字描述动画属性,向下移动500px */
+.image-slider .slide .content {
+  opacity: 0;
+  transform: translateY(500px);
+}
+
+/* 当前正在播放的幻灯片的文字描述位置移动到原位 */
+.image-slider .slide.current .content {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1s ease-in-out 0.4s;
+}
+
+/* 适配屏幕 */
+@media screen and (max-width: 960px) {
+  /* 文字占满屏幕 */
+  .image-slider .slide .content {
+    width: 100%;
+  }
+
+  /* 控制按钮大小和间距缩小 */
+  #prev,
+  #next {
+    font-size: 24px;
+    left: 24px;
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    top: 40%;
+  }
+
+  /* 移动下一张按钮，使间距变小 */
+  #next {
+    left: unset;
+    right: 24px;
+  }
+}
