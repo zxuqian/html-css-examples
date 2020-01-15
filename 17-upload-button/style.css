@@ -1,0 +1,107 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "PingFang SC", "Microsoft Yahei", sans-serif;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #222f3e;
+  height: 100vh;
+}
+
+.upload-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-button button {
+  width: 180px;
+  height: 60px;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+  border: none;
+  border-radius: 8px;
+}
+
+.upload-button svg {
+  position: absolute;
+}
+
+.upload-button.uploading .middle-line {
+  stroke-dasharray: 4 3;
+  animation: 0.8s linear dashLoop infinite;
+}
+
+.upload-button.uploaded .left-line {
+  transform-origin: 50% 50%;
+  animation: 2s linear leftLineTransform forwards;
+}
+
+.upload-button.uploaded .right-line {
+  transform-origin: 50% 50%;
+  animation: 2s linear rightLineTransform forwards;
+}
+
+.upload-button.uploaded .middle-line {
+  stroke-dasharray: 4 3;
+  transition: 0.3s linear;
+  opacity: 0;
+}
+
+@keyframes dashLoop {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 7;
+  }
+}
+
+@keyframes leftLineTransform {
+  from {
+    transform: rotateX(0deg);
+  }
+  20% {
+    transform: rotateX(-90deg);
+    stroke-dasharray: 100 100;
+    stroke-dashoffset: 100;
+  }
+  30% {
+    transform: rotateX(-180deg) translateY(2px) rotate(-5deg);
+    stroke-dasharray: 100 100;
+    stroke-dashoffset: 100;
+  }
+  to {
+    transform: rotateX(-180deg) translateY(2px) rotate(-5deg);
+    stroke-dasharray: 100 100;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes rightLineTransform {
+  from {
+    transform: rotateX(0deg);
+  }
+  20% {
+    transform: rotateX(-90deg);
+    stroke-dasharray: 100 100;
+    stroke-dashoffset: 100;
+  }
+  45% {
+    transform: rotateX(-180deg) rotate(15deg) translateX(-0.93px)
+      translateY(2.5px) scale(1.2);
+    stroke-dasharray: 100 100;
+    stroke-dashoffset: 100;
+  }
+  to {
+    transform: rotateX(-180deg) rotate(15deg) translateX(-3px) translateY(6px)
+      scale(1.2);
+    stroke-dasharray: 100 100;
+    stroke-dashoffset: 0;
+  }
+}

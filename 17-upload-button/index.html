@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>上传按钮-动画</title>
+  </head>
+  <body>
+    <main>
+      <div class="upload-button uploaded">
+        <svg class="arrow" width="340" height="340" viewBox="0 0 40 40">
+          <!-- 进度 -->
+          <circle
+            class="circle"
+            cx="50%"
+            cy="50%"
+            r="19"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="2"
+          ></circle>
+          <!-- 箭头 -->
+          <!-- 左边的线 -->
+          <line
+            x1="6"
+            y1="50%"
+            x2="20.6"
+            y2="6"
+            stroke="#ffffff"
+            stroke-width="2"
+            class="left-line"
+          ></line>
+          <!-- 右边的线 -->
+          <line
+            x1="19.4"
+            y1="6"
+            x2="34"
+            y2="50%"
+            stroke="#ffffff"
+            stroke-width="2"
+            class="right-line"
+          ></line>
+          <!-- 中间的线 -->
+          <line
+            x1="50%"
+            y1="7"
+            x2="50%"
+            y2="34"
+            stroke="#ffffff"
+            stroke-width="2"
+            class="middle-line"
+          ></line>
+        </svg>
+        <button></button>
+        <div class="progress-bar"></div>
+      </div>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
