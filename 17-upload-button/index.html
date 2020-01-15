@@ -9,8 +9,8 @@
   </head>
   <body>
     <main>
-      <div class="upload-button uploaded">
-        <svg class="arrow" width="340" height="340" viewBox="0 0 40 40">
+      <div class="upload-button">
+        <svg class="arrow" width="40" height="40" viewBox="0 0 40 40">
           <!-- 进度 -->
           <circle
             class="circle"
@@ -23,25 +23,22 @@
           ></circle>
           <!-- 箭头 -->
           <!-- 左边的线 -->
-          <line
-            x1="6"
-            y1="50%"
-            x2="20.6"
-            y2="6"
+          <!-- points="6,20 20,6 34,20" -->
+          <!-- points="8,20 18,30 30, 12" -->
+          <polyline
+            points="6,20 20,6 34,20"
             stroke="#ffffff"
+            fill="none"
             stroke-width="2"
-            class="left-line"
-          ></line>
-          <!-- 右边的线 -->
-          <line
-            x1="19.4"
-            y1="6"
-            x2="34"
-            y2="50%"
+            class="arrow-top"
+          ></polyline>
+          <polyline
+            points="8,20 18,30 30, 12"
             stroke="#ffffff"
+            fill="none"
             stroke-width="2"
-            class="right-line"
-          ></line>
+            class="checkmark"
+          ></polyline>
           <!-- 中间的线 -->
           <line
             x1="50%"
@@ -53,7 +50,6 @@
             class="middle-line"
           ></line>
         </svg>
-        <button></button>
         <div class="progress-bar"></div>
       </div>
     </main>
