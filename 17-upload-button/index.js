@@ -5,7 +5,7 @@ var progressBar = document.querySelector(".upload-button .progress-bar");
 // 进度条完成时的宽度
 let width = uploadButton.getBoundingClientRect().width;
 // 假定上传时间为5s
-let animationTime = 5000;
+let uploadTime = 5000;
 
 uploadButton.addEventListener("click", () => {
   // 先移除之前的完成样式
@@ -17,7 +17,7 @@ uploadButton.addEventListener("click", () => {
   //假设5秒后上传完成
   setTimeout(() => {
     uploadButton.classList.replace("uploading", "uploaded");
-  }, animationTime);
+  }, uploadTime);
 
   let start = null;
   function grow(timestamp) {
@@ -28,12 +28,12 @@ uploadButton.addEventListener("click", () => {
 
     //按比例增加进度条宽度
     progressBar.style.width = `${Math.min(
-      (width * progress) / animationTime,
+      width * (progress / uploadTime),
       width
     )}px`;
 
     // 如果上传未完成，继续执行此函数，递归循环
-    if (progress < animationTime) {
+    if (progress < uploadTime) {
       window.requestAnimationFrame(grow);
     }
   }
