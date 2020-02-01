@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 个人卡片容器，居中卡片 -->
+    <div class="wrapper">
+      <!-- 个人卡片 -->
+      <div class="profile-card">
+        <!-- 卡片内容，导航，个人简介和工作经历 -->
+        <div class="content">
+          <!-- 导航 -->
+          <nav id="nav-menu">
+            <!-- data-rel，在js里获取当前要展示哪个section，是个人简介还是工作经历 -->
+            <a class="active" href="#" data-rel="about-me-section">个人简介</a>
+            <a href="#" data-rel="work-exp-section">工作经历</a>
+            <!-- 当前选中菜单的指示条 -->
+            <div class="indicator"></div>
+          </nav>
+          <!-- 关于我部分 -->
+          <section class="about-me-section active-section">
+            <!-- 名字和身份信息 -->
+            <div class="personal-info">
+              <div class="title">
+                <h1>峰华</h1>
+                <p>前端工程师/B站UP主</p>
+              </div>
+              <!-- 关注按钮 -->
+              <button class="follow-btn">
+                <i class="fas fa-plus"></i>关注
+              </button>
+            </div>
+            <!-- 个人简介的内容 -->
+            <div class="about-me">
+              <p>
+                我是峰华，我是一名前端工程师，毕业于美国斯蒂文斯理工学院，计算机科学硕士。曾在XX公司负责产品前端开发。擅长使用
+                React, Styled-components 开发可复用的视图组件。
+              </p>
+            </div>
+            <!-- 社交图标 -->
+            <footer>
+              <ul>
+                <li>
+                  <a href="#"><i class="fab fa-weixin"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fab fa-weibo"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fab fa-github"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                </li>
+              </ul>
+            </footer>
+          </section>
+          <!-- 工作经历部分 -->
+          <section class="work-exp-section">
+            <!-- 工作经历容器 -->
+            <div class="work-exps">
+              <!-- 每条工作经历 -->
+              <div class="work-exp-item">
+                <!-- 职位 -->
+                <div class="position">前端工程师</div>
+                <!-- 分隔线 -->
+                <div class="seperator"></div>
+                <!-- 公司信息 -->
+                <div class="work-info">
+                  <!-- 工作时间 -->
+                  <div class="time">
+                    2018.07 ~ 2019.08 <i class="far fa-calendar"></i>
+                  </div>
+                  <!-- 公司名称 -->
+                  <div class="company">北京某某互联网金融公司</div>
+                </div>
+              </div>
+              <div class="work-exp-item">
+                <div class="position">软件工程师</div>
+                <div class="seperator"></div>
+                <div class="work-info">
+                  <div class="time">
+                    2013.07 ~ 2016.07 <i class="far fa-calendar"></i>
+                  </div>
+                  <div class="company">北京某美国信息技术公司</div>
+                </div>
+              </div>
+              <div class="work-exp-item">
+                <div class="position">软件工程师</div>
+                <div class="seperator"></div>
+                <div class="work-info">
+                  <div class="time">
+                    2010.07 ~ 2010.12 <i class="far fa-calendar"></i>
+                  </div>
+                  <div class="company">北京某大软件有限公司</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- 头像 -->
+        <aside class="profile-image"><img src="me.jpeg" alt="我" /></aside>
+      </div>
+    </div>
+    <!-- JS文件 -->
+    <script src="./index.js"></script>
+  </body>
+</html>

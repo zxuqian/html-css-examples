@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "huxiaobo-gdh1e91397a5f211c5", "PingFang SC", "Microsoft Yahei",
+    sans-serif;
+}
+
+main {
+  background: #2f3542;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+h1 {
+  color: #f1f2f6;
+  font-size: 5em;
+  font-weight: 300;
+}
+
+span.mark {
+  border-right: 2px solid white;
+  animation: blink 0.6s step-end infinite;
+}
+
+@keyframes blink {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+}

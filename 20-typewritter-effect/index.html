@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 引用有字库站酷高端黑字体 -->
+    <link
+      href="http://cdn.repository.webfont.com/webfonts/nomal/135621/46969/5e3024eaf629d810708c2ad6.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 定位文本到浏览器中央 -->
+    <main>
+      <!-- 文字容器，统一由h1控制 -->
+      <h1>
+        <!-- 使用span显示文字, data-text为Json格式的数组 -->
+        <span
+          id="text"
+          data-text='["我是峰华", "我是前端工程师", "我热爱前端开发"]'
+        ></span>
+        <!-- 闪烁的光标 -->
+        <span class="mark"></span>
+      </h1>
+    </main>
+
+    <script src="index.js"></script>
+  </body>
+</html>

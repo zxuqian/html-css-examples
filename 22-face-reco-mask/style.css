@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "PingFang SC", "Microsoft Yahei", sans-serif;
+}
+
+/* canvas {
+  position: absolute;
+} */
+
+#image {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+#mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+div.loading {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 2em;
+  color: white;
+  display: none;
+}
+
+div.loading img {
+  margin-bottom: 1em;
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
