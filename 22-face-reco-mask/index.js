@@ -1,7 +1,6 @@
 async function faceDetection() {
   // 获取加载实例
   const loading = document.querySelector(".loading");
-  console.log(loading);
   loading.style.display = "flex";
 
   // 加载模型
