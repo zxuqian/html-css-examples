@@ -64,6 +64,27 @@ header nav i {
   color: var(--text-color-lightest);
 }
 
+header.sticky {
+  position: fixed;
+  background-color: white;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.2);
+  animation: dropDown 0.5s ease-in-out forwards;
+}
+header.sticky .logo,
+header.sticky nav a,
+header.sticky nav i {
+  color: var(--text-color-darker);
+}
+
+@keyframes dropDown {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 /* 幻灯 */
 .glide {
   position: relative;
@@ -471,6 +492,12 @@ section {
 .activity {
   box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.1);
   padding: 24px;
+  transition: 0.4s;
+}
+
+.activity:hover {
+  transform: translateY(-20px) scale(1.05);
+  box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.1);
 }
 
 .act-image-wrapper {
