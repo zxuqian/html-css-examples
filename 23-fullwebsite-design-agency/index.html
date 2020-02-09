@@ -14,44 +14,62 @@
     <link rel="stylesheet" href="libs/glide/glide.theme.min.css" />
     <link rel="stylesheet" href="style.css" />
 
-    <title>Document</title>
+    <title>峰华科技 - 创新型网络技术企业</title>
   </head>
   <body>
-    <header>
+    <!-- 头部 -->
+    <header class="open">
       <div class="logo">峰华科技</div>
+      <!-- 导航 -->
       <nav>
-        <a href="#">首页</a>
-        <a href="#">关于我们</a>
-        <a href="#">成功案例</a>
-        <a href="#">服务流程</a>
-        <a href="#">团队介绍</a>
-        <a href="#">公司动态</a>
+        <a href="#home">首页</a>
+        <a href="#about-us">关于我们</a>
+        <a href="#showcases">成功案例</a>
+        <a href="#service">服务流程</a>
+        <a href="#team-intro">团队介绍</a>
+        <a href="#company-activities">公司动态</a>
         <i class="fas fa-search"></i>
       </nav>
+      <!-- 折叠导航按钮 -->
+      <div class="burger">
+        <div class="burger-line1"></div>
+        <div class="burger-line2"></div>
+        <div class="burger-line3"></div>
+      </div>
     </header>
-    <div class="glide">
+    <!-- 首页图片轮播，使用glide JS插件 -->
+    <div class="glide" id="home">
+      <!-- 轮播轨道 -->
       <div class="glide__track" data-glide-el="track">
+        <!-- 所有轮播容器 -->
         <div class="glide__slides">
+          <!-- 单个轮播组件 -->
           <div class="glide__slide">
+            <!-- 轮播标题 -->
             <div class="slide-caption">
-              <h1>科技改变世界</h1>
+              <h1>用创新点缀人生，让科技融入理想。</h1>
               <h3>
                 科技创新大平台，智慧生活新引擎。依靠科技进步推进经济跨越式发展。用创新点缀人生，让科技融入理想。
               </h3>
+              <!-- 探索按钮 -->
               <button class="explore-btn">探索更多</button>
             </div>
+            <!-- 背景遮罩 -->
             <div class="backdrop"></div>
+            <!-- 轮播图片 -->
             <img src="images/people-in-couch-1024248.jpg" alt="" />
           </div>
+          <!-- 第二张轮播 -->
           <div class="glide__slide">
             <div class="slide-caption left">
-              <h1>用创新点缀人生，让科技融入理想。</h1>
+              <h1>科技改变世界</h1>
               <h3>
                 立足科学发展，着力自主创新。加速科技进步，为全市经济社会发展提供有力支撑。凝聚科技创意，成就创新梦想。
               </h3>
               <button class="explore-btn">探索更多</button>
             </div>
             <div class="backdrop"></div>
+            <!-- 轮播视频 -->
             <video src="videos/working-man.mp4" muted autoplay loop></video>
           </div>
         </div>
@@ -71,46 +89,55 @@
         <button class="glide__bullet" data-glide-dir="=1"></button>
       </div>
     </div>
+    <!-- 内容容器 -->
     <div class="content-wrapper">
-      <section class="about-us">
+      <!-- 关于我们， id用来导航菜单跳转 -->
+      <section id="about-us" class="about-us">
+        <!-- 标题 -->
         <h2 class="title1">关于我们</h2>
+        <!-- 补充说明区域 -->
         <p class="intro">
           网络公司不仅仅是提供域名注册、空间租用、网站开发、网站建设与网络营销活动策划相关的企业组织。
         </p>
+        <!-- 公司业务容器，栅格布局 -->
         <div class="features">
+          <!-- 公司业务 -->
           <div class="feature">
+            <!-- 左侧业务图标 -->
             <i class="fas fa-lightbulb"></i>
+            <!-- 右侧业务标题 -->
             <h4 class="feature-title">品牌创意</h4>
+            <!-- 右侧业务内容 -->
             <p class="feature-content">
-              为企业设计独特的并能完美呈现企业价值观的视觉载体
+              为企业设计独特的并能完美呈现企业价值观的视觉
             </p>
           </div>
           <div class="feature">
             <i class="fas fa-chart-line"></i>
             <h4 class="feature-title">整合营销</h4>
             <p class="feature-content">
-              通过市场进入分析、制定网络营销战略、网络营销实施步骤
+              通过市场进入分析、制定网络营销战略、网络营销实施
             </p>
           </div>
           <div class="feature">
             <i class="fas fa-shopping-cart"></i>
             <h4 class="feature-title">电子商务</h4>
             <p class="feature-content">
-              根据企业需求，开设不同的销售渠道，通过网上直销 (b2c)解决方案
+              根据企业需求，开设不同的销售渠道，通过网上直销
             </p>
           </div>
           <div class="feature">
             <i class="fas fa-desktop"></i>
             <h4 class="feature-title">网页设计</h4>
             <p class="feature-content">
-              通过网站建设、智能建站、域名主机、企业邮箱、页面设计、网站推广
+              通过网站建设、智能建站、域名主机、企业邮箱
             </p>
           </div>
           <div class="feature">
             <i class="fas fa-tachometer-alt"></i>
             <h4 class="feature-title">网站优化</h4>
             <p class="feature-content">
-              网站推广是指将网站推广到国内各大知名网站和搜索引擎。
+              网站推广是指将网站推广到国内各大知名网站和搜索引擎
             </p>
           </div>
           <div class="feature">
@@ -122,8 +149,11 @@
           </div>
         </div>
       </section>
-      <section class="showcases section-bg">
+      <!-- 成功案例 -->
+      <!-- section-bg 区域灰色背景 -->
+      <section id="showcases" class="showcases section-bg">
         <h2 class="title1">成功案例</h2>
+        <!-- 筛选按钮 -->
         <div class="filter-btns">
           <button class="filter-btn active" data-filter="*">
             全部
@@ -139,10 +169,11 @@
             科研
           </button>
         </div>
-        <!-- data-isotope='{"itemSelector": ".case-item", "layoutMode": "fitRows"}' -->
-        <!-- data-isotope='{"itemSelector": ".case-item", "percentPosition": true}' -->
+        <!-- 案例 -->
         <div class="cases">
+          <!-- case-item样式类，web science为类别类 -->
           <div class="case-item web science">
+            <!-- 图片 -->
             <img
               src="images/gray-laptop-computer-showing-html-codes-in-shallow-focus-160107.jpg"
               alt=""
@@ -180,11 +211,13 @@
           </div>
         </div>
       </section>
-      <section class="service">
+      <!-- 服务流程 -->
+      <section id="service" class="service">
         <h2 class="title1">服务流程</h2>
         <p class="intro">
           网络综合公司，提供包括网络基础服务（如域名、主机、邮箱）和网络增值服务（如网站建设和推广，网站优化）等业务
         </p>
+        <!-- 同关于我们 -->
         <div class="services">
           <div class="service-item">
             <i class="fas fa-comments"></i>
@@ -230,16 +263,22 @@
           </div>
         </div>
       </section>
-
-      <section class="team-intro section-bg">
+      <!-- 团队介绍 -->
+      <section id="team-intro" class="team-intro section-bg">
         <h2 class="title1">团队介绍</h2>
+        <!-- 团队成员容器 -->
         <div class="team-members">
+          <!-- 团队成员 -->
           <div class="team-member">
+            <!-- 成员照片 -->
             <div class="profile-image">
               <img src="images/man-wearing-black-suit-2955376.jpg" alt="" />
             </div>
+            <!-- 成员姓名 -->
             <h4 class="name">张紫齐</h4>
+            <!-- 成员职位 -->
             <p class="position">前端工程师</p>
+            <!-- 成员社交账号 -->
             <ul class="social-links">
               <li>
                 <a href="#"><i class="fab fa-weixin"></i></a>
@@ -326,11 +365,15 @@
           </div>
         </div>
       </section>
-
-      <section class="data-section">
+      <!-- 数据展示  -->
+      <section id="data-section" class="data-section">
+        <!-- 单个数据  -->
         <div class="data-piece">
+          <!-- 图标 -->
           <i class="fas fa-code"></i>
+          <!-- 数据 -->
           <div class="num">156</div>
+          <!-- 单位 -->
           <div class="data-desc">行代码</div>
         </div>
         <div class="data-piece">
@@ -349,26 +392,36 @@
           <div class="data-desc">个项目</div>
         </div>
       </section>
-      <section class="company-activities">
+      <!-- 公司动态 -->
+      <section id="company-activities" class="company-activities">
         <h2 class="title1">公司动态</h2>
         <p class="intro">
           关注公司动态，第一时间获取一手消息
         </p>
+        <!-- 动态容器 -->
         <div class="activities">
+          <!-- 动态 -->
           <div class="activity">
+            <!-- 动态图片 -->
             <div class="act-image-wrapper">
               <img src="images/activity01-image.jpg" alt="" />
             </div>
+            <!-- 动态元数据，包括发表日期和评论数量 -->
             <div class="meta">
+              <!-- 发布日期 -->
               <p class="date-published">
                 <i class="far fa-calendar"></i> 2019年12月1日
               </p>
+
               <p class="comments"><i class="far fa-comments"></i> 33条评论</p>
             </div>
+            <!-- 动态标题 -->
             <h2 class="act-title">提供互联网接入的ISP公司</h2>
+            <!-- 动态内容摘要 -->
             <article>
               网络公司原本指的是提供网络服务的互联网内容提供商ICP公司，提供互联网接入的ISP公司，提供内容托管的IDC提供商，还有无线接入、网络游戏、网络视频、网络培训、网络销售。
             </article>
+            <!-- 阅读更多按钮 -->
             <button class="readmore-btn">阅读更多</button>
           </div>
           <div class="activity">
@@ -406,9 +459,11 @@
         </div>
       </section>
     </div>
-
+    <!-- 底部信息 -->
     <footer>
+      <!-- 底部菜单 -->
       <div class="footer-menus">
+        <!-- 联系信息 -->
         <div class="contact-us">
           <p class="menu-title">联系我们</p>
           <p>地址：中国XX省XX市XX路XX商务中心10号楼</p>
@@ -416,6 +471,7 @@
           <p>传真：+18618618611861</p>
           <p>电子邮箱：admin@abc.com</p>
         </div>
+        <!-- 导航菜单 -->
         <div class="service-menu footer-menu">
           <p class="menu-title">服务概览</p>
           <ul class="menu-items">
@@ -450,18 +506,29 @@
             <li><a href="#">文档资源</a></li>
           </ul>
         </div>
+        <!-- 备案信息 -->
         <p class="icp-info">
           京ICP备 12345678901-1 号
         </p>
+        <!-- 版权信息 -->
         <p class="rights">
-          &copy; 2020 峰华前端 - 响应式网络公司官网 版权所有
+          &copy; 2020 峰华科技 - 响应式网络公司官网 版权所有
         </p>
+        <!-- 返回顶部按钮 -->
+        <div class="scrollToTop">
+          <a href="#home"><i class="fas fa-chevron-up"></i></a>
+        </div>
       </div>
     </footer>
+    <!-- 轮播插件 -->
     <script src="libs/glide/glide.min.js"></script>
+    <!-- 案例筛选组件  -->
     <script src="libs/isotope/isotope.pkgd.min.js"></script>
+    <!-- 动画组件 -->
     <script src="libs/anime/anime.min.js"></script>
-
+    <!-- 流畅滑动组件 -->
+    <script src="libs/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
+    <!-- 自定义JS文件 -->
     <script src="index.js"></script>
   </body>
 </html>
