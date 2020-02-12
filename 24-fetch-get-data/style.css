@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, "PingFang SC", "Microsoft Yahei", sans-serif;
+}
+
+body {
+  background-color: #f1f2f6;
+}
+
+#root {
+  padding: 8vw;
+}
+
+li {
+  list-style: none;
+  margin: 16px 0;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: #2f3542;
+  font-size: 18px;
+
+  /* 超过部分省略 */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+  transition: 0.3s;
+  max-width: 100vw;
+}
+
+a:hover {
+  color: #1e90ff;
+}
