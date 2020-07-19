@@ -15,7 +15,7 @@ Demo 演示： [https://zxuqian.github.io/html-css-examples/](https://zxuqian.gi
 
 ## Bilibili 
 
-[点击跳转到 Bibibili 首页](https://space.bilibili.com/302954484)
+[点击跳转到我的 Bibibili 个人空间首页](https://space.bilibili.com/302954484)
 
 或者扫描下方二维码
 
