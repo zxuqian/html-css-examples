@@ -20,31 +20,23 @@ li {
 
 main {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   flex-wrap: wrap;
   min-height: 100vh;
   width: 100vw;
-  background: #c0c0aa; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #1cefff,
-    #c0c0aa
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #1cefff,
-    #c0c0aa
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 5vmin;
+  background: #2a1c3a; /* fallback for old browsers */
+  background: linear-gradient(to right, #2a1c3a, #2d2a4a);
 }
 
 .card {
   border-radius: 12px;
-  min-width: 450px;
-  margin: 40px;
-  padding: 40px;
-  box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
-  background: rgba(255, 255, 255, 0.3);
+  width: 350px;
+  margin: 18px;
+  padding: 18px 36px;
+  box-shadow: 0 0 24px rgba(15, 6, 60, 0.88);
+  background: rgb(65, 61, 97);
 }
 
 ul li {
@@ -53,24 +45,14 @@ ul li {
 
 li a {
   display: block;
-  color: white;
+  color: #d8d1ff;
   text-shadow: 0 0 2px rgba(180, 124, 117, 0.4);
   text-decoration: none;
-  text-align: center;
+  text-align: left;
   font-size: 18px;
-  padding: 18px;
-  border-radius: 12px;
-  background: #ffafbd; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #ffc3a0,
-    #ffafbd
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #ffc3a0,
-    #ffafbd
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 8px 24px;
+  border-radius: 6px;
+  background: #efefef0f;
 }
 
 @media screen and (max-width: 512px) {
