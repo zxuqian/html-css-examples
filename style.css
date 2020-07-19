@@ -55,10 +55,15 @@ li a {
   background: #efefef0f;
 }
 
-@media screen and (max-width: 512px) {
+@media screen and (max-width: 860px) {
+  main {
+    padding: 2vmin;
+    justify-content: center;
+  }
   .card {
-    min-width: 350px;
-    padding: 4rem;
+    /* width: 350px; */
+    padding: 2rem;
+    margin: 1rem;
   }
   li a {
     padding: 1rem;
