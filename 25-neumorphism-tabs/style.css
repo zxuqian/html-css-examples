@@ -16,6 +16,8 @@ body {
   justify-content: center;
   width: 100vw;
   height: 100vh;
+  min-width: 375px;
+  overflow: auto;
 }
 
 .tab-container {
@@ -72,5 +74,17 @@ body {
   }
   to {
     opacity: 1;
+  }
+}
+
+@media (max-width: 838px) {
+  .tab-container {
+    width: 100%;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 418px) {
+  .tab {
+    padding: 12px 24px;
   }
 }
