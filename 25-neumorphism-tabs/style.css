@@ -29,7 +29,6 @@ body {
   border-radius: 5px;
   background: #f0f0f3;
   box-shadow: -1px -1px 3px #ffffff, 1.5px 1.5px 3px rgba(174, 174, 192, 0.4);
-
   display: flex;
 }
 .tab {
@@ -43,18 +42,28 @@ body {
   background: #eeeeee;
   box-shadow: inset -1px -1px 1px rgba(255, 255, 255, 0.7),
     inset 1px 1px 2px rgba(174, 174, 192, 0.2);
+  color: #a7b4cc;
 }
 
 .tab-content {
   margin-top: 36px;
-  padding: 24px;
+  padding: 36px;
   border-radius: 16px;
   background: #f0f0f3;
   box-shadow: -10px -10px 30px #ffffff, 10px 10px 30px rgba(174, 174, 192, 0.4);
 }
 
-.tab-content > * {
+.tab-content > div > img {
+  height: 100px;
+}
+
+.tab-content > div {
   animation: fadeIn 1.3s;
+}
+
+.tab-content h2 {
+  margin-bottom: 24px;
+  font-weight: 400;
 }
 
 @keyframes fadeIn {
