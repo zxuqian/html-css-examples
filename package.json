@@ -1,0 +1,16 @@
+{
+  "name": "html-css-examples",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/zxuqian/html-css-examples",
+  "author": "Xuqian Zhang <zxuqian@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "watch": "babel --watch src/index.js --out-dir ."
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-react": "^7.12.10"
+  }
+}
