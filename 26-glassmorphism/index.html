@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 玻璃特效</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Helvetica, sans-serif;
+      }
+      .background {
+        width: 100vw;
+        height: 100vh;
+        max-width: 100%;
+        background: url("./background.jpg") no-repeat;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .glass {
+        width: 50vw;
+        height: 50vh;
+        backdrop-filter: blur(8px);
+        background-color: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(27, 0, 37, 0.89);
+        border-radius: 10px;
+      }
+
+      .background > h1 {
+        position: absolute;
+        font-size: 12vw;
+        color: #c8a3ff;
+      }
+
+      .glass h1 {
+        text-align: center;
+        padding-top: 0.2em;
+        font-size: 8vw;
+        color: #ffffff;
+        text-shadow: 1px 1px 12px rgba(255, 255, 255, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background">
+      <h1>CSS Glassmporphsim</h1>
+      <div class="glass">
+        <h1>Hello!</h1>
+      </div>
+    </div>
+    <!-- Photo by Martin Mariani from Pexels -->
+  </body>
+</html>

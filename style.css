@@ -20,52 +20,72 @@ li {
 
 main {
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   min-height: 100vh;
   width: 100vw;
   padding: 5vmin;
   background: #2a1c3a; /* fallback for old browsers */
-  background: linear-gradient(to right, #2a1c3a, #2d2a4a);
+  background: linear-gradient(135deg, #292929, #000000);
 }
 
-.card {
-  border-radius: 12px;
-  width: 350px;
-  margin: 18px;
-  padding: 18px 36px;
-  box-shadow: 0 0 24px rgba(15, 6, 60, 0.88);
-  background: rgb(65, 61, 97);
+.container {
+  background-color: rgba(54, 54, 54, 0.4);
+  border-radius: 8px;
+  padding: 48px;
 }
 
-ul li {
-  margin: 18px 0;
+.container h1 {
+  color: #ffffff;
+  margin-bottom: 36px;
 }
 
-li a {
+.list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 36px;
+  column-gap: 24px;
+}
+
+.list li {
+  background: linear-gradient(135deg, #0061ff, #ff00f2);
+  border-radius: 6px;
+}
+
+.list li a {
   display: block;
-  color: #d8d1ff;
+  color: #ffffff;
   text-shadow: 0 0 2px rgba(180, 124, 117, 0.4);
   text-decoration: none;
   text-align: left;
   font-size: 18px;
-  padding: 8px 24px;
+  padding: 18px 24px;
+  text-align: center;
+  margin: 2px;
+  background-color: rgb(24, 24, 24);
   border-radius: 6px;
-  background: #efefef0f;
+  width: 265px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-@media screen and (max-width: 860px) {
-  main {
-    padding: 2vmin;
-    justify-content: center;
+@media screen and (max-width: 1260px) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
   }
-  .card {
-    /* width: 350px; */
-    padding: 2rem;
-    margin: 1rem;
+}
+
+@media screen and (max-width: 976px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
   }
-  li a {
-    padding: 1rem;
+}
+
+@media screen and (max-width: 670px) {
+  .list {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
