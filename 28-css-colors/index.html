@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        border: 0;
+        font-family: Helvetica, sans-serif;
+      }
+
+      :root {
+        --color-green: 130deg;
+        --color-blue: 200deg;
+        --color-purple: 250deg;
+
+        --opacity-100: 100%;
+        --opacity-80: 80%;
+        --opacity-70: 70%;
+        --opacity-50: 50%;
+        --opacity-30: 30%;
+
+        --lightness-60: 60%;
+        --lightness-40: 40%;
+        --lightness-30: 30%;
+        --lightness-20: 20%;
+        --lightness-10: 10%;
+
+        --saturation-100: 100%;
+        --saturation-80: 80%;
+        --saturation-70: 70%;
+        --saturation-50: 50%;
+        --saturation-30: 30%;
+
+        --green-opacity-100: hsl(
+          var(--color-green),
+          var(--saturation-100),
+          var(--lightness-60),
+          var(--opacity-100)
+        );
+        --green-opacity-80: hsl(
+          var(--color-green),
+          var(--saturation-100),
+          var(--lightness-60),
+          var(--opacity-80)
+        );
+        --green-opacity-70: hsl(
+          var(--color-green),
+          var(--saturation-100),
+          var(--lightness-60),
+          var(--opacity-70)
+        );
+        --green-opacity-50: hsl(
+          var(--color-green),
+          var(--saturation-100),
+          var(--lightness-60),
+          var(--opacity-50)
+        );
+        --green-opacity-30: hsl(
+          var(--color-green),
+          var(--saturation-100),
+          var(--lightness-60),
+          var(--opacity-30)
+        );
+
+        --blue-light-60: hsl(
+          var(--color-blue),
+          var(--saturation-100),
+          var(--lightness-60),
+          var(--opacity-100)
+        );
+        --blue-light-40: hsl(
+          var(--color-blue),
+          var(--saturation-100),
+          var(--lightness-40),
+          var(--opacity-100)
+        );
+        --blue-light-30: hsl(
+          var(--color-blue),
+          var(--saturation-100),
+          var(--lightness-30),
+          var(--opacity-100)
+        );
+        --blue-light-20: hsl(
+          var(--color-blue),
+          var(--saturation-100),
+          var(--lightness-20),
+          var(--opacity-100)
+        );
+        --blue-light-10: hsl(
+          var(--color-blue),
+          var(--saturation-100),
+          var(--lightness-10),
+          var(--opacity-100)
+        );
+
+        --purple-sat-100: hsl(
+          var(--color-purple),
+          var(--saturation-100),
+          var(--lightness-60),
+          var(--opacity-100)
+        );
+        --purple-sat-80: hsl(
+          var(--color-purple),
+          var(--saturation-80),
+          var(--lightness-60),
+          var(--opacity-100)
+        );
+        --purple-sat-70: hsl(
+          var(--color-purple),
+          var(--saturation-70),
+          var(--lightness-60),
+          var(--opacity-100)
+        );
+        --purple-sat-50: hsl(
+          var(--color-purple),
+          var(--saturation-50),
+          var(--lightness-60),
+          var(--opacity-100)
+        );
+        --purple-sat-30: hsl(
+          var(--color-purple),
+          var(--saturation-30),
+          var(--lightness-60),
+          var(--opacity-100)
+        );
+      }
+
+      main {
+        width: 100vw;
+        height: 100vh;
+        background-color: #000000;
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 12px;
+        padding: 24px;
+        /* row-gap: 3px; */
+      }
+
+      .bar {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+      }
+
+      .green .bar:nth-child(1) {
+        background-color: var(--green-opacity-100);
+      }
+      .green .bar:nth-child(2) {
+        background-color: var(--green-opacity-80);
+      }
+      .green .bar:nth-child(3) {
+        background-color: var(--green-opacity-70);
+      }
+      .green .bar:nth-child(4) {
+        background-color: var(--green-opacity-50);
+      }
+      .green .bar:nth-child(5) {
+        background-color: var(--green-opacity-30);
+      }
+
+      .blue .bar:nth-child(1) {
+        background-color: var(--blue-light-60);
+      }
+      .blue .bar:nth-child(2) {
+        background-color: var(--blue-light-40);
+      }
+      .blue .bar:nth-child(3) {
+        background-color: var(--blue-light-30);
+      }
+      .blue .bar:nth-child(4) {
+        background-color: var(--blue-light-20);
+      }
+      .blue .bar:nth-child(5) {
+        background-color: var(--blue-light-10);
+      }
+
+      .purple .bar:nth-child(1) {
+        background-color: var(--purple-sat-100);
+      }
+      .purple .bar:nth-child(2) {
+        background-color: var(--purple-sat-80);
+      }
+      .purple .bar:nth-child(3) {
+        background-color: var(--purple-sat-70);
+      }
+      .purple .bar:nth-child(4) {
+        background-color: var(--purple-sat-50);
+      }
+      .purple .bar:nth-child(5) {
+        background-color: var(--purple-sat-30);
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <div class="green">
+        <div class="bar">hsl(130deg, 100%, 60%, 100%)</div>
+        <div class="bar">hsl(130deg, 100%, 60%, 80%)</div>
+        <div class="bar">hsl(130deg, 100%, 60%, 70%)</div>
+        <div class="bar">hsl(130deg, 100%, 60%, 50%)</div>
+        <div class="bar">hsl(130deg, 100%, 60%, 30%)</div>
+      </div>
+      <div class="blue">
+        <div class="bar">hsl(200deg, 100%, 60%, 100%)</div>
+        <div class="bar">hsl(200deg, 100%, 40%, 100%)</div>
+        <div class="bar">hsl(200deg, 100%, 30%, 100%)</div>
+        <div class="bar">hsl(200deg, 100%, 20%, 100%)</div>
+        <div class="bar">hsl(200deg, 100%, 10%, 100%)</div>
+      </div>
+      <div class="purple">
+        <div class="bar">hsl(250deg, 100%, 60%, 100%)</div>
+        <div class="bar">hsl(250deg, 80%, 60%, 90%)</div>
+        <div class="bar">hsl(250deg, 70%, 60%, 80%)</div>
+        <div class="bar">hsl(250deg, 50%, 60%, 70%)</div>
+        <div class="bar">hsl(250deg, 30%, 60%, 60%)</div>
+      </div>
+    </main>
+  </body>
+</html>
