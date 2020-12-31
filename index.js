@@ -102,6 +102,10 @@ const uis = [
   {
     href: "27-glitch-effect",
     text: "赛博朋克按钮",
+  },
+  {
+    href: "28-css-colors",
+    text: "HSL 颜色表示法",
     newItem: true,
   },
 ];
