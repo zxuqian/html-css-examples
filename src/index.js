@@ -27,7 +27,6 @@ const uis = [
   { href: "24-fetch-get-data", text: "使用 fetch 加载远程数据" },
   { href: "25-neumorphism-tabs", text: "新拟态选项卡" },
   { href: "26-glassmorphism", text: "玻璃态特效" },
-  { href: "26-glassmorphism", text: "玻璃态特效" },
   { href: "27-glitch-effect", text: "赛博朋克按钮" },
   { href: "28-css-colors", text: "HSL 颜色表示法" },
   { href: "29-resizable-element", text: "可缩放元素", newItem: true },
