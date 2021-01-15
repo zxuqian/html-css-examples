@@ -74,9 +74,6 @@ const uis = [{
   href: "26-glassmorphism",
   text: "玻璃态特效"
 }, {
-  href: "26-glassmorphism",
-  text: "玻璃态特效"
-}, {
   href: "27-glitch-effect",
   text: "赛博朋克按钮"
 }, {
@@ -84,7 +81,10 @@ const uis = [{
   text: "HSL 颜色表示法"
 }, {
   href: "29-resizable-element",
-  text: "可缩放元素",
+  text: "可缩放元素"
+}, {
+  href: "30-gradient-background-animation",
+  text: "渐变背景过渡动画",
   newItem: true
 }];
 
