@@ -1,4 +1,8 @@
 const uis = [{
+  href: "31-webcomponent-get-started",
+  text: "Web Components 入门实战",
+  newItem: true
+}, {
   href: "01-social-icon-hover-glow-effect",
   text: "社交图标Hover发光特效"
 }, {
@@ -84,13 +88,16 @@ const uis = [{
   text: "可缩放元素"
 }, {
   href: "30-gradient-background-animation",
-  text: "渐变背景过渡动画",
-  newItem: true
+  text: "渐变背景过渡动画"
 }];
 
 function UILists() {
   return uis.map((ui, i) => {
-    return /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement(Link, {
+    return /*#__PURE__*/React.createElement("li", {
+      style: {
+        position: "relative"
+      }
+    }, /*#__PURE__*/React.createElement(Link, {
       item: ui,
       key: i
     }));
@@ -104,7 +111,15 @@ function Link({
     href: item.href
   }, item.text, item.newItem ? /*#__PURE__*/React.createElement("span", {
     style: {
-      color: "#74f174"
+      background: "hsl(121deg 100% 50%)",
+      borderRadius: 4,
+      fontSize: 10,
+      padding: "6px 4px",
+      color: "#000000",
+      fontWeight: 600,
+      position: "absolute",
+      right: -14,
+      top: -6
     }
   }, "\uFF08NEW!\uFF09") : null);
 }

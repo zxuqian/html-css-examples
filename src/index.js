@@ -1,4 +1,9 @@
 const uis = [
+  {
+    href: "31-webcomponent-get-started",
+    text: "Web Components 入门实战",
+    newItem: true,
+  },
   { href: "01-social-icon-hover-glow-effect", text: "社交图标Hover发光特效" },
   { href: "02-login-form-glass-effect", text: "登录表单玻璃特效" },
   { href: "03-chatting-ui", text: "移动聊天UI实现" },
@@ -33,14 +38,13 @@ const uis = [
   {
     href: "30-gradient-background-animation",
     text: "渐变背景过渡动画",
-    newItem: true,
   },
 ];
 
 function UILists() {
   return uis.map((ui, i) => {
     return (
-      <li>
+      <li style={{ position: "relative" }}>
         <Link item={ui} key={i} />
       </li>
     );
@@ -51,7 +55,23 @@ function Link({ item }) {
   return (
     <a href={item.href}>
       {item.text}
-      {item.newItem ? <span style={{ color: "#74f174" }}>（NEW!）</span> : null}
+      {item.newItem ? (
+        <span
+          style={{
+            background: "hsl(121deg 100% 50%)",
+            borderRadius: 4,
+            fontSize: 10,
+            padding: "6px 4px",
+            color: "#000000",
+            fontWeight: 600,
+            position: "absolute",
+            right: -14,
+            top: -6,
+          }}
+        >
+          （NEW!）
+        </span>
+      ) : null}
     </a>
   );
 }
