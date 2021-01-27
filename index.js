@@ -1,7 +1,10 @@
 const uis = [{
-  href: "31-webcomponent-get-started",
-  text: "Web Components 入门实战",
+  href: "31-05-wechat-emoji-effect",
+  text: "仿微信8.0表情动画",
   newItem: true
+}, {
+  href: "31-webcomponent-get-started",
+  text: "Web Components 入门实战"
 }, {
   href: "01-social-icon-hover-glow-effect",
   text: "社交图标Hover发光特效"
