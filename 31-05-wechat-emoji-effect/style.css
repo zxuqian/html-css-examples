@@ -1,0 +1,216 @@
+:root {
+  --primary-color: hsl(200, 100%, 48%);
+  --inverse-color: hsl(310, 90%, 60%);
+  --shadow-large: 0 0px 24px hsl(0, 0%, 0%, 0.2);
+  --shadow-medium: 0 0 12px hsl(0, 0%, 0%, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica, "PingFang SC", "Microsoft Yahei", sans-serif;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: hsl(0, 0%, 10%);
+}
+
+.chat {
+  width: 375px;
+  height: 700px;
+  background: hsl(0, 0%, 100%);
+  border-radius: 8px;
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+}
+
+.titleBar {
+  padding: 24px 0;
+  text-align: center;
+  box-shadow: var(--shadow-large);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 12px;
+  overflow: auto;
+}
+
+.message {
+  display: flex;
+  max-width: 80%;
+  font-size: 14px;
+  margin: 8px 0;
+  position: relative;
+}
+
+.message img {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  margin-right: 12px;
+}
+
+.message p {
+  padding: 8px 12px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-large);
+  display: flex;
+  align-items: center;
+}
+
+.message.mine {
+  flex-flow: row-reverse;
+  align-self: flex-end;
+}
+
+.message.mine img {
+  margin-right: 0;
+  margin-left: 12px;
+}
+
+.message.mine p {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+button,
+input {
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: 48px 1fr 75px;
+  justify-items: center;
+  padding: 12px;
+  box-shadow: var(--shadow-large);
+}
+
+.chooseSticker {
+  justify-self: start;
+  position: relative;
+}
+
+.chooseSticker img {
+  width: 36px;
+  height: 36px;
+}
+
+.stickers {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 24px);
+  column-gap: 18px;
+
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: var(--shadow-medium);
+
+  padding: 6px 12px;
+  font-size: 24px;
+  position: absolute;
+  top: calc(-100% - 18px);
+  width: 300px;
+  opacity: 0;
+}
+
+.stickers > span {
+  width: 40px;
+  height: 40px;
+}
+
+.messageInput {
+  box-shadow: var(--shadow-medium);
+  padding: 0px 12px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.send {
+  height: 100%;
+  width: 90%;
+  border-radius: 8px;
+  justify-self: end;
+  color: white;
+  background-color: var(--inverse-color);
+}
+
+.show {
+  opacity: 1;
+}
+
+/* .hide {
+  opacity: 0;
+} */
+
+.message p {
+  transform-origin: left bottom;
+}
+
+.message.mine p {
+  transform-origin: right bottom;
+}
+
+.shake {
+  animation: shake 0.8s ease-in-out;
+}
+
+/* 晃动动画 */
+@keyframes shake {
+  from {
+    transform: translate3d(0, 0px, 0px);
+  }
+  10% {
+    transform: translate3d(6px, -6px, 0px);
+  }
+  20% {
+    transform: translate3d(-5px, 5px, 0px);
+  }
+  30% {
+    transform: translate3d(4px, -4px, 0px);
+  }
+  35% {
+    transform: translate3d(-3px, 3px, 0px);
+  }
+  39% {
+    transform: translate3d(2px, -2px, 0px);
+  }
+  41% {
+    transform: translate3d(-1px, 1px, 0px);
+  }
+  42% {
+    transform: translate3d(0px, 0px, 0px) rotate(20deg);
+  }
+
+  52% {
+    transform: rotate(-15deg);
+  }
+
+  60% {
+    transform: rotate(8deg);
+  }
+
+  65% {
+    transform: rotate(-3deg);
+  }
+
+  67% {
+    transform: rotate(1deg);
+  }
+
+  70% {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: translate3d(0px, 0px, 0px) rotate(0);
+  }
+}
