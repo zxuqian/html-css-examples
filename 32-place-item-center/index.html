@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      .grid {
+        width: 100vw;
+        height: 100vh;
+        /* 示例核心 */
+        display: grid;
+        place-items: center;
+
+        background-color: hsl(0, 0%, 20%);
+      }
+
+      .content {
+        font-size: 8rem;
+
+        border: 1px solid hsl(120deg, 60%, 70%);
+        border-radius: 4px;
+        box-shadow: 0 0 24px hsl(120deg, 60%, 80%);
+        /* background: inherit; */
+        padding: 10rem;
+
+        position: relative;
+        z-index: 100;
+        grid-area: 1 / 1 / 2 / 2;
+      }
+
+      .desc {
+        color: white;
+        font-family: sans-serif;
+        background-color: hsl(0, 0%, 20%);
+
+        padding: 4px 12px;
+
+        grid-area: 1 / 1 / 2 / 2;
+        z-index: 120;
+      }
+
+      .grid::before,
+      .grid::after {
+        display: block;
+        content: "";
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(
+          45deg,
+          hsl(0deg 100% 65%),
+          hsl(228deg 100% 52%)
+        );
+        position: absolute;
+      }
+
+      .grid::before {
+        left: 0;
+        top: 50vh;
+      }
+
+      .grid::after {
+        background: linear-gradient(
+          45deg,
+          hsl(210deg 100% 51%),
+          hsl(109deg 100% 50%)
+        );
+        width: 4px;
+        height: 100%;
+        left: 50vw;
+        top: 0;
+      }
+    </style>
+
+    <title>Grid 布局简化居中方式</title>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="content">😊</div>
+      <div class="desc">place-items: center</div>
+    </div>
+  </body>
+</html>

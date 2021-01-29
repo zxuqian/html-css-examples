@@ -1,8 +1,12 @@
 const uis = [
   {
+    href: "32-place-item-center",
+    text: "2行代码居中元素",
+    newItem: true,
+  },
+  {
     href: "31-05-wechat-emoji-effect",
     text: "仿微信8.0表情动画",
-    newItem: true,
   },
   {
     href: "31-webcomponent-get-started",
