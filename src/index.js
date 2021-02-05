@@ -1,8 +1,12 @@
 const uis = [
   {
+    href: "33-text-image-layout",
+    text: "图片文字环绕",
+    newItem: true,
+  },
+  {
     href: "32-place-item-center",
     text: "2行代码居中元素",
-    newItem: true,
   },
   {
     href: "31-05-wechat-emoji-effect",
