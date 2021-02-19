@@ -1,7 +1,10 @@
 const uis = [{
-  href: "33-text-image-layout",
-  text: "图片文字环绕",
+  href: "34-drag-drop-api",
+  text: "原生拖拽与拖放操作",
   newItem: true
+}, {
+  href: "33-text-image-layout",
+  text: "图片文字环绕"
 }, {
   href: "32-place-item-center",
   text: "2行代码居中元素"

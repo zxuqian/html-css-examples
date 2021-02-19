@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      main {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+        background-color: hsl(0deg, 0%, 10%);
+      }
+
+      .draggable-container {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-items: center;
+      }
+
+      .draggable,
+      .droppable {
+        border-radius: 4px;
+      }
+
+      .draggable {
+        width: 25vw;
+        height: 25vw;
+        background: #00d9ff;
+      }
+
+      .droppable {
+        width: 30vw;
+        height: 30vw;
+        border: 8px dashed #00d9ff;
+        position: relative;
+        display: grid;
+        place-items: center;
+      }
+
+      .droppable::before {
+        display: block;
+        content: "请拖放到此区域";
+        position: absolute;
+        color: white;
+        font-family: sans-serif;
+        font-size: 3vw;
+        color: hsl(0, 0%, 30%);
+      }
+
+      .droppable img {
+        width: 80%;
+        height: 80%;
+        object-fit: contain;
+      }
+
+      .dragover {
+        border: 8px dashed #ffae00;
+      }
+
+      .dropped {
+        border: 8px dashed #48ff00;
+      }
+      .dropped::before {
+        z-index: -1;
+      }
+    </style>
+    <title>原生拖拽</title>
+  </head>
+  <body>
+    <main>
+      <div class="draggable-container">
+        <div id="draggable" class="draggable" draggable="true"></div>
+      </div>
+      <div id="droppable" class="droppable"></div>
+    </main>
+    <script>
+      const draggable = document.getElementById("draggable");
+      const droppable = document.getElementById("droppable");
+
+      draggable.addEventListener("dragstart", handleDragStart);
+      droppable.addEventListener("dragover", handleDragover);
+      droppable.addEventListener("dragleave", handleDragLeave);
+      droppable.addEventListener("drop", handleDrop);
+
+      function handleDragStart(e) {
+        e.dataTransfer.setData("text/plain", e.target.id);
+        // 有 copy、move、和 auto 三种，分别是把鼠标指针
+        // 显示为复制样式（带+号）、移动样式，或自动设置样式
+        // e.dataTransfer.dropEffect = "move";
+      }
+
+      function handleDragover(e) {
+        e.preventDefault();
+        droppable.classList.add("dragover");
+        // e.dataTransfer.dropEffect = "move";
+      }
+
+      function handleDragLeave(e) {
+        droppable.classList.remove("dragover");
+      }
+
+      function handleDrop(e) {
+        e.preventDefault();
+        // 如果是文件
+        [...e.dataTransfer.items].forEach((item) => {
+          if (item.kind === "file") {
+            const file = item.getAsFile();
+            createPreview(file);
+          }
+        });
+
+        // 如果是元素
+        const draggedId = e.dataTransfer.getData("text/plain");
+        droppable.appendChild(document.getElementById(draggedId));
+        droppable.classList.add("dropped");
+      }
+
+      function createPreview(imageFile) {
+        if (!imageFile.type.startsWith("image/")) {
+          return;
+        }
+
+        const image = document.createElement("img");
+        image.src = URL.createObjectURL(imageFile);
+        image.onload = function () {
+          URL.revokeObjectURL(this.src);
+        };
+        droppable.appendChild(image);
+      }
+    </script>
+  </body>
+</html>
