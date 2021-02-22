@@ -1,8 +1,12 @@
 const uis = [
   {
+    href: "35-collision-physics",
+    text: "JS 碰撞物理引擎",
+    newItem: true,
+  },
+  {
     href: "34-drag-drop-api",
     text: "原生拖拽与拖放操作",
-    newItem: true,
   },
   {
     href: "33-text-image-layout",
