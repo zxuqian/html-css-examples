@@ -1,8 +1,16 @@
 const uis = [
   {
+    href: "37-container-queries",
+    text: "CSS Container Queries",
+    newItem: true,
+  },
+  {
+    href: "36-tech-website",
+    text: "HTML&CSS 工业风网站",
+  },
+  {
     href: "35-collision-physics",
     text: "JS 碰撞物理引擎",
-    newItem: true,
   },
   {
     href: "34-drag-drop-api",

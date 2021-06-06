@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Container Queries</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+      .card-container,
+      .card-container2 {
+        width: 80vw;
+        margin: 0 auto;
+        contain: layout inline-size;
+      }
+
+      .card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 18px;
+        box-shadow: 0 0 24px rgb(0, 0, 0, 0.2);
+        padding: 24px;
+        margin: 10%;
+      }
+
+      img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        grid-row: 1 / 3;
+      }
+
+      .title {
+        font-size: 24px;
+        margin: 18px 0;
+      }
+
+      @container (max-width: 850px) {
+        .card {
+          grid-template-columns: 1fr;
+        }
+
+        img {
+          grid-row: 1;
+        }
+      }
+
+      @container (max-width: 950px) {
+        .card-container2 .card {
+          grid-template-columns: 1fr;
+        }
+
+        .card-container2 img {
+          grid-row: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card-container">
+      <div class="card">
+        <img
+          src="https://images.pexels.com/photos/2524874/pexels-photo-2524874.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+          alt=""
+        />
+        <div class="title">卡片标题</div>
+        <div class="content">
+          卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容
+        </div>
+      </div>
+    </div>
+    <div class="card-container2">
+      <div class="card">
+        <img
+          src="https://images.pexels.com/photos/2524874/pexels-photo-2524874.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+          alt=""
+        />
+        <div class="title">卡片标题</div>
+        <div class="content">
+          卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容卡片内容
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
