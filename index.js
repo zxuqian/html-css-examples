@@ -1,7 +1,13 @@
 const uis = [{
-  href: "37-container-queries",
-  text: "CSS Container Queries",
+  href: "39-web-animations",
+  text: "Web Animations API",
   newItem: true
+}, {
+  href: "38-horizontal-scrolling",
+  text: "横向滚动"
+}, {
+  href: "37-container-queries",
+  text: "CSS Container Queries"
 }, {
   href: "36-tech-website",
   text: "HTML&CSS 工业风网站"
