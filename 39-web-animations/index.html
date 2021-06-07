@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Animations</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+
+      main {
+        background: hsl(0deg, 0%, 10%);
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+
+      .container {
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 72px;
+        color: white;
+      }
+
+      h2 {
+        color: hsl(0deg, 0%, 80%);
+        font-size: 18px;
+        margin-top: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <h1 class="title">Welcome</h1>
+        <h2 class="subtitle">JavaScript Web Animations API</h2>
+      </div>
+    </main>
+    <script>
+      let title = document.querySelector(".title");
+      let subTitle = document.querySelector(".subtitle");
+      let fadeAndMove = [
+        {
+          opacity: 0,
+          transform: `translateY(-20px)`,
+        },
+        {
+          opacity: 1,
+          transform: `translateY(0px)`,
+        },
+      ];
+
+      let titleTiming = {
+        duration: 2000,
+        easing: "ease-in-out",
+      };
+
+      const titleChange = title.animate(fadeAndMove, titleTiming);
+
+      let expand = [
+        {
+          letterSpacing: "-0.5em",
+          opacity: 0,
+        },
+        {
+          letterSpacing: "initial",
+          opacity: 1,
+        },
+      ];
+
+      let subTitleTiming = {
+        duration: titleChange.effect.getComputedTiming().duration / 2,
+        easing: "ease-in-out",
+      };
+
+      const subTitleChange = subTitle.animate(expand, subTitleTiming);
+      subTitleChange.pause();
+
+      document.addEventListener("click", () => {
+        // idle, running, paused, finished
+        if (subTitleChange.playState !== "finished") {
+          subTitleChange.play();
+        }
+      });
+    </script>
+  </body>
+</html>
