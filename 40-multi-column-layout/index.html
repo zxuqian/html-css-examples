@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Multi-column Layout</title>
+    <style>
+      body {
+        background: hsl(0deg, 0%, 10%);
+        color: white;
+        font-family: sans-serif;
+      }
+
+      article {
+        columns: 3 200px;
+        column-gap: 80px;
+        column-rule: 2px solid hsl(0deg, 0%, 30%);
+        height: 600px;
+        column-fill: auto;
+      }
+      h2 {
+        column-span: all;
+        background-color: hsl(0deg, 0%, 20%);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article>
+        <p>
+          是不是每次面试没通过都会有这样的感觉？作为一名程序员，每次面试的时候都觉得准备不充分，面试资料多的看不完，实战经验也不够，即使自认为准备的很充分了，最后还是栽了，到底是因为自己菜，还是自己菜，还是自己菜呢？要回答这个问题，我们得先知道面试到底在面什么。
+        </p>
+        <h2>面试在面什么</h2>
+        <p>
+          我们好多小伙伴总觉得面试就跟高考一样，有着严格的评分标准和分数线，谁的分高谁就能进去，但事实上，面试是通过交谈来互相了解对方的一种形式，更多的时候是考验的一个人的沟通能力，如果你能让面试官感觉聊的很投机，那么会有相当大的概率通过面试。
+          对于技术方面，不同的公司有不同的侧重点，大厂看重原理和算法，其它公司看中技术的熟悉程度，也就是项目经验。
+        </p>
+        <p>
+          技术方面的问题是最棘手的，你可能认为面试通过的人，技术一定很牛，这个我以身边进谷歌、Facebook、亚马逊等国外大厂的朋友的经验证明，这是绝对错误的。技术关是最没有技术含量的考验。通常，公司并不知道一个面试者的技术水平，所以才会通过笔试和前几轮的面试进行考察，考察的问题基本都是类似的、可以举一反三的、是能专门进行准备的。简而言之，就是谁下功夫准备面试了，谁通过的概率就大很多，例如一个刷了
+          leetcode 500 道题 3 遍的，一定比刷了 300 道题 1 遍的通过率高。
+        </p>
+      </article>
+    </main>
+  </body>
+</html>
