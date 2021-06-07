@@ -1,7 +1,10 @@
 const uis = [{
-  href: "39-web-animations",
-  text: "Web Animations API",
+  href: "40-multi-column-layout",
+  text: "Multi-column 布局",
   newItem: true
+}, {
+  href: "39-web-animations",
+  text: "Web Animations API"
 }, {
   href: "38-horizontal-scrolling",
   text: "横向滚动"

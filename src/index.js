@@ -1,8 +1,12 @@
 const uis = [
   {
+    href: "40-multi-column-layout",
+    text: "Multi-column 布局",
+    newItem: true,
+  },
+  {
     href: "39-web-animations",
     text: "Web Animations API",
-    newItem: true,
   },
   {
     href: "38-horizontal-scrolling",
