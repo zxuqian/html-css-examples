@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="base.css" />
+    <title>CSS Scroll Snap 水平贴合</title>
+    <style>
+      /* 核心样式 */
+      main {
+        display: flex;
+        scroll-snap-type: x mandatory;
+        overflow: scroll;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      section {
+        width: 100vw;
+        height: 100vh;
+        scroll-snap-align: start;
+        flex-shrink: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>页面内容1</section>
+      <section>页面内容2</section>
+      <section>页面内容3</section>
+      <section>页面内容4</section>
+    </main>
+  </body>
+</html>

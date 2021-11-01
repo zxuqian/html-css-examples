@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+/* 装饰性样式 */
+section {
+  display: grid;
+  place-items: center;
+  font-size: 2em;
+}
+
+section:nth-child(1) {
+  background: rgb(229, 213, 255);
+}
+
+section:nth-child(2) {
+  background: rgb(255, 219, 206);
+}
+
+section:nth-child(3) {
+  background: rgb(242, 240, 186);
+}
+
+section:nth-child(4) {
+  background: rgb(196, 244, 175);
+}
+
+h1 {
+  box-shadow: 0 0 24px hsl(0, 0%, 0%, 0.2);
+  display: grid;
+  place-items: center;
+  font-size: 2em;
+  background: white;
+}
+
+ul {
+  width: 50%;
+  list-style: none;
+  height: 240px;
+  overflow: scroll;
+}
+
+li {
+  padding: 1em;
+  text-align: center;
+  font-size: 2em;
+}
+
+li:nth-child(2n) {
+  background: rgb(229, 213, 255);
+}
+
+li:nth-child(2n + 1) {
+  background: rgb(255, 219, 206);
+}

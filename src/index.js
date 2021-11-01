@@ -1,8 +1,12 @@
 const uis = [
   {
+    href: "41-css-scroll-snap",
+    text: "CSS 滚动贴合",
+    newItem: true,
+  },
+  {
     href: "40-multi-column-layout",
     text: "Multi-column 布局",
-    newItem: true,
   },
   {
     href: "39-web-animations",

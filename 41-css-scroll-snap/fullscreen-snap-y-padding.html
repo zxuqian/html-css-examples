@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="base.css" />
+    <title>CSS Scroll Snap 贴合间距</title>
+    <style>
+      /* 核心样式 */
+      h1 {
+        height: 80px;
+        position: sticky;
+        top: 0;
+      }
+      main {
+        scroll-snap-type: y mandatory;
+        scroll-padding: 80px;
+        overflow: scroll;
+        height: 100vh;
+      }
+      section {
+        width: 100vw;
+        height: 100vh;
+        scroll-snap-align: start;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>H1标题</h1>
+      <section>页面内容1</section>
+      <section>页面内容2</section>
+      <section>页面内容3</section>
+      <section>页面内容4</section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="base.css" />
+    <title>CSS Scroll Snap 近似贴合</title>
+    <style>
+      /* 核心样式 */
+      main {
+        /* scroll-snap-type: y mandatory; */
+        scroll-snap-type: y proximity;
+        /* 需要把滚动条设置到直接父容器，scroll-snap-type 才能生效，默认是在 body 上，现在是 main 上 */
+        overflow: scroll;
+        height: 100vh;
+      }
+
+      section {
+        width: 100vw;
+        height: 100vh;
+        scroll-snap-align: end;
+      }
+
+      /* 假如第3个部分非常长 */
+      section:nth-child(3) {
+        height: 250vh;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>页面内容1</section>
+      <section>页面内容2</section>
+      <section>页面内容3</section>
+      <section>页面内容4</section>
+    </main>
+  </body>
+</html>

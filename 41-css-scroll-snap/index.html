@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      main {
+        width: 100vw;
+        height: 100vh;
+        max-width: 100%;
+        display: grid;
+        place-items: center;
+        background-color: hsl(0deg, 0%, 5%);
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      li {
+        padding: 0.6em;
+      }
+
+      a {
+        color: white;
+        font-size: 2em;
+      }
+    </style>
+    <title>CSS 滚动贴合</title>
+  </head>
+  <body>
+    <main>
+      <ul>
+        <li>
+          <a href="./fullscreen-snap-y.html">垂直贴合</a>
+        </li>
+        <li><a href="./fullscreen-snap-x.html">水平贴合</a></li>
+        <li><a href="./fullscreen-snap-proximity.html">近似贴合</a></li>
+        <li><a href="./fullscreen-snap-y-padding.html">贴合间距</a></li>
+        <li><a href="./list-scroll-y.html">Ul 列表贴合</a></li>
+      </ul>
+    </main>
+  </body>
+</html>
