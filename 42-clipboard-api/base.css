@@ -1,0 +1,46 @@
+main {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.codeBlock {
+  display: flex;
+  align-items: center;
+}
+
+code {
+  font-size: 18px;
+  background: hsl(0deg, 0%, 10%);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+button {
+  background: linear-gradient(45deg, hsl(240, 100%, 50%), hsl(290, 100%, 50%));
+  border-radius: 4px;
+  border: none;
+  padding: 8px 10px;
+  color: white;
+
+  margin-left: 1em;
+  cursor: pointer;
+}
+
+.editor {
+  display: grid;
+  justify-items: end;
+  margin-top: 2em;
+}
+
+#paste {
+  margin-top: 1em;
+}
+
+textarea {
+  border: 1px solid hsl(0deg, 0%, 90%);
+  border-radius: 4px;
+  padding: 8px;
+}

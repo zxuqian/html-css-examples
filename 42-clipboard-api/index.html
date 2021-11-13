@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="base.css" />
+    <title>Clipboard API</title>
+  </head>
+  <body>
+    <main>
+      <div>
+        <div class="codeBlock">
+          <code>let a = 1;</code>
+          <button id="copy">复制</button>
+        </div>
+        <div class="editor">
+          <textarea id="codeEditor" cols="20" rows="10"></textarea>
+          <button id="paste">粘贴</button>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const copyBtn = document.getElementById("copy");
+      const codeEle = document.querySelector(".codeBlock code");
+
+      const pasteBtn = document.getElementById("paste");
+      const codeEditorEle = document.getElementById("codeEditor");
+
+      copyBtn.addEventListener("click", () => {
+        navigator.clipboard
+          .writeText(codeEle.innerText)
+          .then(() => alert("复制成功！"));
+      });
+
+      pasteBtn.addEventListener("click", () => {
+        navigator.clipboard.readText().then((text) => {
+          codeEditorEle.innerText = text;
+        });
+      });
+    </script>
+  </body>
+</html>
