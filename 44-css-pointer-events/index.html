@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Pointer Events</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: hsl(0deg, 0%, 8%);
+      }
+
+      main {
+        width: 100vw;
+        height: 100vh;
+        max-width: 100%;
+        display: grid;
+        place-items: center;
+      }
+
+      .imageContainer {
+        position: relative;
+      }
+
+      img {
+        width: 50vw;
+        height: auto;
+      }
+
+      .overlay {
+        position: absolute;
+        bottom: 0;
+        background-color: hsl(0deg, 0%, 0%, 0.8);
+        width: 100%;
+        padding: 48px 24px;
+        color: white;
+
+        /* 可以直接点进去 */
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="imageContainer">
+        <a href="https://www.zxuqian.cn">
+          <img src="./2021-12-20-19-52-11.png" alt="" />
+        </a>
+        <div class="overlay">这是一段描述文案</div>
+      </div>
+    </main>
+  </body>
+</html>

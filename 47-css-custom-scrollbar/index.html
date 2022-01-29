@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 自定义滚动条</title>
+    <link rel="stylesheet" href="../reset.css" />
+    <style>
+      body {
+        background: hsl(0deg, 0%, 10%);
+        color: hsl(0deg, 0%, 70%);
+      }
+      main {
+        width: 100vw;
+        max-width: 100%;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+      main > div {
+        max-width: 700px;
+        padding: 24px;
+      }
+      p {
+        line-height: 1.5em;
+      }
+
+      body::-webkit-scrollbar {
+        width: 3px;
+        background: linear-gradient(
+          to bottom,
+          hsl(0deg, 100%, 50%, 0.4) 0%,
+          hsl(40deg, 100%, 50%) 20%,
+          hsl(80deg, 100%, 50%) 30%,
+          hsl(120deg, 100%, 50%) 40%,
+          hsl(180deg, 100%, 50%) 50%,
+          hsl(250deg, 100%, 50%) 80%,
+          hsl(320deg, 100%, 50%, 0.4) 100%
+        );
+        border-radius: 4px;
+      }
+
+      body::-webkit-scrollbar-thumb {
+        background: linear-gradient(
+          to bottom,
+          hsl(0deg, 100%, 50%, 0) 0%,
+          hsl(0deg, 100%, 100%, 0.9) 20%,
+          hsl(0deg, 100%, 100%, 0.9) 80%,
+          hsl(0deg, 100%, 50%, 0) 100%
+        );
+        border-radius: 100%;
+      }
+
+      /* 标准的 scroll bar 属性，还未发布 */
+      /* body {
+        scrollbar-color: black;
+        scrollbar-width: thin | auto | none; 
+      } */
+
+      /* IE */
+      /* body {
+        scrollbar-face-color: #00ff00;
+        scrollbar-track-color: #ff0000;
+      } */
+    </style>
+  </head>
+  <body>
+    <main>
+      <div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore
+          animi labore nesciunt delectus nulla repellat earum voluptatem,
+          exercitationem eveniet necessitatibus architecto molestias expedita
+          similique soluta deserunt! Harum, totam debitis.
+        </p>
+      </div>
+    </main>
+  </body>
+</html>

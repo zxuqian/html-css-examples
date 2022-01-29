@@ -1,8 +1,32 @@
 const uis = [
   {
+    href: "47-css-custom-scrollbar",
+    text: "CSS 自定义滚动条样式",
+    newItem: true,
+  },
+  {
+    href: "46-css-aspect-ratio",
+    text: "CSS 设置宽高比",
+  },
+  {
+    href: "45-URLSearchParams",
+    text: "URLSearchParams 使用简介",
+  },
+  {
+    href: "44-css-pointer-events",
+    text: "CSS 事件穿透",
+  },
+  {
+    href: "43-css-gradient-shadow",
+    text: "CSS 渐变阴影",
+  },
+  {
+    href: "42-clipboard-api",
+    text: "剪贴板 API 操作",
+  },
+  {
     href: "41-css-scroll-snap",
     text: "CSS 滚动贴合",
-    newItem: true,
   },
   {
     href: "40-multi-column-layout",

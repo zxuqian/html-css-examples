@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URLSearchParams</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: hsl(0deg, 0%, 8%);
+      }
+
+      main {
+        width: 100vw;
+        height: 100vh;
+        max-width: 100%;
+        display: grid;
+        place-items: center;
+      }
+
+      input {
+        border: 1px solid hsl(140deg, 100%, 50%);
+        padding: 24px 18px;
+        font-size: 24px;
+        border-radius: 12px;
+        background-color: transparent;
+        color: white;
+        outline: none;
+        width: 80vw;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="inputContainer">
+        <input
+          id="url"
+          type="text"
+          value='q=测试&order=asc&filters=["前端","后端"]'
+        />
+      </div>
+    </main>
+    <script>
+      const urlInput = document.getElementById("url");
+      const url = urlInput.value;
+
+      // 获取实例
+      const params = new URLSearchParams(url);
+
+      // 遍历
+      for (let p of params) {
+        console.log(p);
+      }
+
+      // 获取单个参数
+      const keyword = params.get("q");
+      console.log(keyword);
+
+      // 判断是否存在
+      const hasOrder = params.has("order");
+      console.log(hasOrder);
+
+      // 转换为字符串
+      console.log(params.toString());
+
+      // 转换数组
+      const filters = params.get("filters");
+      console.log(JSON.parse(filters));
+
+      // 修改参数
+      params.set("order", "desc");
+      console.log(params.toString());
+
+      // 添加参数
+      params.append("pageSize", "10");
+      console.log(params.toString());
+
+      // 删除参数
+      params.delete("filters");
+      console.log(params.toString());
+    </script>
+  </body>
+</html>
