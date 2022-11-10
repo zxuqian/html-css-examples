@@ -442,6 +442,7 @@ section {
 /* 成员照片遮罩 */
 .profile-image {
   overflow: hidden;
+  width: 100%;
 }
 /* 成员照片 */
 .profile-image img {
