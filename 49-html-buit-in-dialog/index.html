@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Built-in Dialog Element</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <!-- <dialog open> -->
+      <!-- <dialog id="dialog">
+        <h1>Welcome!</h1>
+        <p>This is a simple dialog</p>
+        <form method="dialog">
+          <button>Close</button>
+        </form>
+      </dialog> -->
+      <dialog id="dialog">
+        <h1>Register</h1>
+        <form method="dialog">
+          <!-- user input will be saved when dialog closes -->
+          <input type="text" name="username" placeholder="username" />
+          <input type="password" name="password" placeholder="password" />
+          <div>
+            <button value="cancel">Cancel</button>
+            <button value="ok">OK</button>
+          </div>
+        </form>
+      </dialog>
+      <button id="showDialog">Show Dialog</button>
+    </main>
+    <script src="./index.js"></script>
+  </body>
+</html>

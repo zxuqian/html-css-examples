@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Verdana, "PingFang SC", "Microsoft Yahei", sans-serif;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  background: #DBEEFF;
+}
+
+p {
+  font-weight: 500;
+  font-size: 16px;
+  color: #384d6c;
+}
+
+.box p:nth-child(2) {
+  font-weight: 700;
+}
+
+.box {
+  display: grid;
+  place-items: center;
+  gap: 32px;
+
+  padding: 40px 56px;
+
+  /* claymporphism */
+  background: #deebff;
+  box-shadow: 12px 12px 18px rgba(155, 196, 255, 0.42),
+    inset 10px 10px 11px rgba(250, 252, 255, 0.48),
+    inset -10px -10px 15px rgba(46, 129, 255, 0.22);
+  border-radius: 52px;
+}
+
+button {
+  padding: 8px 32px;
+  border: none;
+  color: white;
+  font-weight: 900;
+
+  /* claymporphism */
+  background: #cb5eff;
+  box-shadow: 2px 3px 13px rgba(197, 78, 253, 0.43),
+    inset -2px -2px 8px rgba(75, 10, 106, 0.43),
+    inset 2px 2px 6px rgba(251, 242, 255, 0.47);
+  border-radius: 22px;
+}
