@@ -1,7 +1,13 @@
 const uis = [{
-  href: "47-css-custom-scrollbar",
-  text: "CSS 自定义滚动条样式",
+  href: "49-html-buit-in-dialog",
+  text: "HTML Built-in Dialog",
   newItem: true
+}, {
+  href: "48-css-clay-morphism",
+  text: "CSS Claymorphism"
+}, {
+  href: "47-css-custom-scrollbar",
+  text: "CSS 自定义滚动条样式"
 }, {
   href: "46-css-aspect-ratio",
   text: "CSS 设置宽高比"
