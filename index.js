@@ -1,7 +1,10 @@
 const uis = [{
-  href: "49-html-buit-in-dialog",
-  text: "HTML Built-in Dialog",
+  href: "50-css-grid-irregular-layout",
+  text: "CSS Irregular Layout",
   newItem: true
+}, {
+  href: "49-html-buit-in-dialog",
+  text: "HTML Built-in Dialog"
 }, {
   href: "48-css-clay-morphism",
   text: "CSS Claymorphism"
