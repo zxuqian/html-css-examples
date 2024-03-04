@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+      }
+
+      main {
+        background-color: hsl(209, 100%, 50%);
+        width: 100vw;
+        height: calc(100vh * 3);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+
+        perspective: 1000px;
+      }
+
+      .box {
+        margin-top: 50vh;
+        background-color: hsl(40, 100%, 50%);
+        width: 300px;
+        height: 300px;
+        animation: scaleAndFlip linear;
+        animation-timeline: scroll(root block);
+        transform-style: preserve-3d;
+      }
+
+      .box2 {
+        background-color: hsl(60, 100%, 50%);
+      }
+
+      @keyframes scaleAndFlip {
+        0% {
+          scale: 1;
+          rotate: x 0deg;
+        }
+        100% {
+          scale: 4;
+          rotate: x 360deg;
+          opacity: 0.1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="box box1"></div>
+      <div class="box box2"></div>
+    </main>
+  </body>
+</html>
