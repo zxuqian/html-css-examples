@@ -13,47 +13,42 @@
       }
 
       main {
-        background-color: hsl(209, 100%, 50%);
+        /* background-color: hsl(209, 100%, 50%); */
         width: 100vw;
         height: calc(100vh * 3);
         display: grid;
         grid-template-columns: 1fr 1fr;
         justify-items: center;
 
-        perspective: 1000px;
+        /* perspective: 1000px; */
       }
 
-      .box {
-        margin-top: 50vh;
-        background-color: hsl(40, 100%, 50%);
+      img {
         width: 300px;
         height: 300px;
-        animation: scaleAndFlip linear;
+        object-fit: cover;
+        margin-top: 50vh;
+      }
+
+      img:nth-of-type(1) {
+        animation: move200 linear;
         animation-timeline: scroll(root block);
-        transform-style: preserve-3d;
       }
 
-      .box2 {
-        background-color: hsl(60, 100%, 50%);
-      }
-
-      @keyframes scaleAndFlip {
+      @keyframes move200 {
         0% {
-          scale: 1;
-          rotate: x 0deg;
+          translate: 0 0;
         }
         100% {
-          scale: 4;
-          rotate: x 360deg;
-          opacity: 0.1;
+          translate: 0 -200px;
         }
       }
     </style>
   </head>
   <body>
     <main>
-      <div class="box box1"></div>
-      <div class="box box2"></div>
+      <img src="images/image1.jpg" alt="" />
+      <img src="images/image2.jpg" alt="" />
     </main>
   </body>
 </html>
