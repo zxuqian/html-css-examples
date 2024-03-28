@@ -1,8 +1,12 @@
 const uis = [
   {
+    href: "51-css-scroll-based-animation",
+    text: "CSS Scroll Based Animation",
+    newItem: true,
+  },
+  {
     href: "50-css-grid-irregular-layout",
     text: "CSS Irregular Layout",
-    newItem: true,
   },
   {
     href: "49-html-buit-in-dialog",
