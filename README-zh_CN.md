@@ -26,3 +26,16 @@
 或者扫描下方二维码
 
 <img src="./bilibili.jpg" width="250" alt="Bilibili 峰华前端工程师" />
+
+## 贡献
+
+欢迎贡献新特效示例！请按照以下步骤添加：
+
+1. Fork 仓库。
+2. 创建一个新分支，以 `feature/` 开头。
+3. 参考现有的示例结构创建示例（注意最新的编号）。
+4. 运行 `yarn run watch` 或 `npm run watch`。它会监控 `src/index.js` 中的更改，并编译到 `/index.js`，这个文件用于生成示例页面的 React 组件。
+5. 更新 `src/index.js`。在 `uis` 数组的顶部添加示例名字和链接，并把 `newItem` 设置为 `true`，移除上一个示例的 `newItem` 属性。
+6. 测试并提交 PR。
+
+注意：你同意所贡献的代码可能会在我的一些视频中进行教学演示。

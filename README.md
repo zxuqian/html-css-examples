@@ -33,4 +33,13 @@ Or scan the QR code below:
 
 ## Contributing
 
-Currently, I have no contribution plans, but If you have any good examples, feel free to open an issue or submit a PR.
+Contributing is welcome! Follow these steps to add your examples:
+
+1. Fork this repository
+2. Create a new branch, starting with `feature/`. 
+3. Structure your project according to the existing ones (note the latest numbering).
+4. Run `yarn run watch` or `npm run watch`. This will monitor changes in `src/index.js` and compile it to `/index.js`, which is used to display React components for the demo page.
+5. Update `src/index.js`. Add your example name and link at the top of the `uis` array, set `newItem` to `true`, and remove the `newItem` property from the previous item.
+6. Test and issue a PR.
+
+Notice: By contributing, you agree that your code may be used for demonstration in some of my videos.
