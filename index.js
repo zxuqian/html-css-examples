@@ -1,4 +1,8 @@
 const uis = [{
+  href: "52-day-night-toggle-button",
+  text: "白天黑夜切换按钮",
+  newItem: true
+}, {
   href: "51-css-scroll-based-animation",
   text: "CSS Scroll Based Animation",
   newItem: true
