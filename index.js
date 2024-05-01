@@ -4,8 +4,7 @@ const uis = [{
   newItem: true
 }, {
   href: "51-css-scroll-based-animation",
-  text: "CSS Scroll Based Animation",
-  newItem: true
+  text: "CSS Scroll Based Animation"
 }, {
   href: "50-css-grid-irregular-layout",
   text: "CSS Irregular Layout"
