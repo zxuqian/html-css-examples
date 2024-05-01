@@ -37,5 +37,6 @@
 4. 运行 `yarn run watch` 或 `npm run watch`。它会监控 `src/index.js` 中的更改，并编译到 `/index.js`，这个文件用于生成示例页面的 React 组件。
 5. 更新 `src/index.js`。在 `uis` 数组的顶部添加示例名字和链接，并把 `newItem` 设置为 `true`，移除上一个示例的 `newItem` 属性。
 6. 测试并提交 PR。
+7. 请确保示例的样式符合现代设计审美。
 
 注意：你同意所贡献的代码可能会在我的一些视频中进行教学演示。
