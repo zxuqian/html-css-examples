@@ -1,8 +1,12 @@
 const uis = [
   {
+    href: "53-screenshot-html2-canvas",
+    text: "前端截图功能实现",
+    newItem: true,
+  },
+  {
     href: "52-day-night-toggle-button",
     text: "白天黑夜切换按钮",
-    newItem: true,
   },
   {
     href: "51-css-scroll-based-animation",

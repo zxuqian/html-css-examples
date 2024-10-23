@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="html2canvas.min.js"></script>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+      body {
+        margin: 0;
+      }
+      button {
+        margin: 24px;
+        padding: 12px 24px;
+        font-size: 16px;
+        background: #f6d365;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      #container {
+        display: flex;
+      }
+      #capture {
+        width: 25vw;
+        margin: 0;
+        padding: 24px;
+        background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="capture">
+        <h1>这是一个标题</h1>
+        <p>这里是一些文字内容。</p>
+        <img src="cafe.jpg" alt="咖啡厅" />
+      </div>
+    </div>
+
+    <button id="screenshotButton">截图</button>
+    <script>
+      document
+        .getElementById("screenshotButton")
+        .addEventListener("click", function () {
+          // 选择需要截图的元素
+          let captureElement = document.getElementById("capture");
+
+          // 使用 html2canvas 截图
+          html2canvas(captureElement).then((canvas) => {
+            // 将生成的截图添加到页面
+            document.getElementById("container").appendChild(canvas);
+
+            // 将截图保存为图片
+            let imgData = canvas.toDataURL("image/png");
+            let link = document.createElement("a");
+            link.href = imgData;
+            link.download = "screenshot.png";
+            link.click();
+          });
+        });
+    </script>
+  </body>
+</html>
