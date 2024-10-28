@@ -1,8 +1,20 @@
 const uis = [
   {
+    href: "56-animation-button",
+    text: "按钮 Hover 五彩阴影特效",
+    newItem: true,
+  },
+  {
+    href: "55-beautiful-table",
+    text: "表格样式",
+  },
+  {
+    href: "54-navbar-dark-bouncing",
+    text: "导航条带有跳跃动画",
+  },
+  {
     href: "53-screenshot-html2-canvas",
     text: "前端截图功能实现",
-    newItem: true,
   },
   {
     href: "52-day-night-toggle-button",
