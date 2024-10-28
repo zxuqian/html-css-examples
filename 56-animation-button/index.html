@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Colorful Glowing Button</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #000000;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .glowing-button {
+        border: none;
+        background-color: #1f1f1f;
+        color: white;
+        padding: 15px 30px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer;
+        position: relative;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+      }
+
+      .glowing-button::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50px;
+        background: conic-gradient(
+          from 0deg,
+          #ff0000,
+          #ff7300,
+          #ffeb00,
+          #47ff00,
+          #00ffee,
+          #2b65ff,
+          #8000ff,
+          #ff0000
+        );
+        opacity: 0;
+        transition: all 0.3s ease;
+        /* z-index 创建了一个新的 stacking context，这样它就能放在 button 的下边。
+        因为 ::before 和 ::after 是在原元素本身内部创建新的元素。
+        如果想把伪元素的背景覆盖到父元素上边，需要给 button 设置 z-index: 1 */
+        z-index: -1;
+        filter: blur(12px);
+      }
+
+      .glowing-button:hover::after {
+        opacity: 1;
+        scale: 1.2;
+      }
+
+      /* .glowing-button:hover {
+        box-shadow: 0 0 30px #ff0000, 0 0 40px #47ff00, 0 0 50px #2b65ff;
+      } */
+    </style>
+  </head>
+  <body>
+    <div style="text-align: center">
+      <button class="glowing-button">Button</button>
+    </div>
+  </body>
+</html>
