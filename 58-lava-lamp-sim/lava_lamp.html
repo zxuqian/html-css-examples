@@ -1,0 +1,340 @@
+<style>
+  #wrap{display:flex;flex-direction:column;align-items:center;padding:1rem 0;gap:12px}
+  canvas{border-radius:40px;display:block;box-shadow:0 0 0 6px #1a0a00,0 0 0 10px #3d1c00}
+  #controls{display:flex;gap:20px;align-items:center;flex-wrap:wrap;justify-content:center}
+  label{font-size:13px;color:var(--color-text-secondary);display:flex;align-items:center;gap:8px}
+  input[type=range]{width:100px}
+  .val{font-size:13px;font-weight:500;color:var(--color-text-primary);min-width:28px}
+  .badge{font-size:12px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:4px 12px;color:var(--color-text-secondary)}
+</style>
+<div id="wrap">
+  <canvas id="c" width="260" height="500"></canvas>
+  <div id="controls">
+    <label>Heat <input type="range" id="heat" min="0.1" max="1" step="0.05" value="0.1"><span class="val" id="heatv">0.1</span></label>
+    <label>Particles <input type="range" id="pcount" min="10" max="150" step="10" value="100"><span class="val" id="pv">100</span></label>
+    <label><input type="checkbox" id="showAir" checked> Air</label>
+    <span class="badge" id="status">Warming</span>
+  </div>
+</div>
+<script>
+const canvas=document.getElementById('c');
+const ctx=canvas.getContext('2d');
+const W=canvas.width,H=canvas.height;
+function lerp(a,b,t){return a+(b-a)*t}
+function clamp(v,lo,hi){return Math.max(lo,Math.min(hi,v))}
+const FLOOR=H-30,CEIL=30;
+const DRAG_SEC=0.3;
+
+// ── Air density field ──────────────────────────────────────────────
+// Grid of cells storing density (0=hot/light, 1=cool/heavy)
+const AIR_COLS=26, AIR_ROWS=50;
+const airDX=W/AIR_COLS, airDY=H/AIR_ROWS;
+let airDensity=new Float32Array(AIR_COLS*AIR_ROWS);
+let airVY=new Float32Array(AIR_COLS*AIR_ROWS); // vertical velocity per cell
+
+function airIdx(c,r){return r*AIR_COLS+c;}
+
+function initAir(){
+  for(let r=0;r<AIR_ROWS;r++){
+    const ny=r/AIR_ROWS;
+    for(let c=0;c<AIR_COLS;c++){
+      airDensity[airIdx(c,r)]=0.5+ny*0.3+Math.random()*0.04;
+    }
+  }
+}
+initAir();
+
+function sampleAirDensity(x,y){
+  const c=clamp(Math.floor(x/airDX),0,AIR_COLS-1);
+  const r=clamp(Math.floor(y/airDY),0,AIR_ROWS-1);
+  return airDensity[airIdx(c,r)];
+}
+
+function updateAir(dt,heatFactor,particles){
+  // 1. heat source at bottom warms (lowers) density; cool top raises it
+  for(let r=0;r<AIR_ROWS;r++){
+    const ny=r/(AIR_ROWS-1);
+    for(let c=0;c<AIR_COLS;c++){
+      const cx=(c+0.5)*airDX, cy=(r+0.5)*airDY;
+      // natural gradient: bottom hot, top cool
+      const targetBase=clamp(ny*0.8,0,1);
+      // blob proximity heats air (lowers density)
+      let blobHeat=0;
+      for(let p of particles){
+        const dx=cx-p.x, dy=cy-p.y;
+        const d2=dx*dx+dy*dy;
+        const inf=p.r*14;
+        if(d2<inf*inf) blobHeat+=p.temp*(1-Math.sqrt(d2)/inf)*0.8;
+      }
+      const target=clamp(targetBase-heatFactor*0.35-blobHeat,0,1);
+      const rate=0.018*dt;
+      const i=airIdx(c,r);
+      airDensity[i]+=(target-airDensity[i])*rate;
+    }
+  }
+
+  // 2. buoyancy within air: lighter (hot) air rises
+  const next=new Float32Array(airDensity);
+  for(let r=1;r<AIR_ROWS-1;r++){
+    for(let c=0;c<AIR_COLS;c++){
+      const i=airIdx(c,r);
+      const d=airDensity[i];
+      // if lighter than cell above, swap upward slightly
+      const above=airDensity[airIdx(c,r-1)];
+      if(d<above){
+        const diff=(above-d)*0.06*dt;
+        next[airIdx(c,r-1)]-=diff;
+        next[i]+=diff;
+      }
+    }
+  }
+  // 3. lateral diffusion (gentle spread)
+  for(let r=0;r<AIR_ROWS;r++){
+    for(let c=1;c<AIR_COLS-1;c++){
+      const i=airIdx(c,r);
+      const avg=(next[airIdx(c-1,r)]+next[airIdx(c+1,r)])*0.5;
+      next[i]+=(avg-next[i])*0.04*dt;
+    }
+  }
+  for(let i=0;i<airDensity.length;i++) airDensity[i]=clamp(next[i],0,1);
+}
+
+function drawAir(showAir){
+  if(!showAir) return;
+  for(let r=0;r<AIR_ROWS;r++){
+    for(let c=0;c<AIR_COLS;c++){
+      const d=airDensity[airIdx(c,r)];
+      // dense cool air = faint blue-white; hot thin air = near invisible
+      const alpha=d*d*0.09;
+      if(alpha<0.005) continue;
+      const blue=Math.round(lerp(60,200,d));
+      const green=Math.round(lerp(30,140,d));
+      ctx.fillStyle=`rgba(${green},${green},${blue},${alpha.toFixed(3)})`;
+      ctx.fillRect(c*airDX, r*airDY, airDX+1, airDY+1);
+    }
+  }
+}
+
+// ── Lamp shape helper ─────────────────────────────────────────────
+function lampHW(y){
+  const t=clamp((y-20)/(H-40),0,1);
+  return (W/2-14)*(0.62+0.38*Math.sin(t*Math.PI));
+}
+
+class Particle{
+  constructor(id){
+    this.id=id;
+    this.x=W/2+(Math.random()-.5)*70;
+    this.y=lerp(CEIL,FLOOR,0.7+Math.random()*0.5);
+    this.r=5+Math.random()*2.5;
+    this.vx=(Math.random()-1.5)*2;
+    this.vy=(Math.random()-1.5)*2;
+    this.temp=0.05+Math.random()*0.1;
+    this.nox=Math.random()*100;
+    this.noy=Math.random()*100+50;
+    this.nfx=0.008+Math.random()*0.006;
+    this.nfy=0.005+Math.random()*0.005;
+    this.clusterSize=1;
+    this.exposedFrac=1.0;
+  }
+  update(dt,heatFactor,particles){
+    this.nox+=dt*this.nfx;
+    this.noy+=dt*this.nfy;
+
+    let nb=0;
+    for(let p of particles){
+      if(p===this) continue;
+      const dx=this.x-p.x,dy=this.y-p.y;
+      const th=(this.r+p.r)*1.4;
+      if(dx*dx+dy*dy<th*th) nb++;
+    }
+    this.clusterSize=1+nb;
+    this.exposedFrac=clamp(1-nb*0.15,0.15,1.0);
+
+    const breakup=Math.max(0,this.clusterSize-6)*0.03;
+    this.vx+=(Math.random()-.5)*breakup;
+    this.vy+=(Math.random()-.5)*breakup;
+
+    const ny=clamp((this.y-CEIL)/(FLOOR-CEIL),0,1);
+    const ambientTemp=clamp(Math.pow(ny,0.5)*heatFactor,0,1);
+    const savRate=this.exposedFrac/Math.sqrt(this.clusterSize);
+    const heatRate=0.025*savRate*(1+heatFactor*0.3);
+    this.temp+=(ambientTemp-this.temp)*heatRate*dt*16;
+    this.temp=clamp(this.temp,0,1);
+
+    const massFactor=1/Math.pow(this.clusterSize,0.08);
+    const hotness=this.temp-0.3;
+
+    // ── Air density interaction ────────────────────────────────────
+    const localAir=sampleAirDensity(this.x,this.y);
+    // Dense air pushes blobs down slightly; thin hot air lets them rise more freely
+    // buoyancy adjusted by inverse of air density (thin air = extra lift for hot blobs)
+    const airBuoyancyMod=lerp(0.85,1.18,1-localAir);
+    // dense air adds gentle drag (resistance)
+    const airDragExtra=lerp(1.0,0.94,localAir);
+
+    const buoyF=hotness>0
+      ? hotness*-1.6*heatFactor*massFactor*airBuoyancyMod
+      : hotness*-0.28*heatFactor;
+
+    this.vy+=buoyF*dt;
+
+    if(this.clusterSize>8) this.vy-=0.3*(this.clusterSize-8)*dt;
+    if(this.y>FLOOR-this.r-4&&this.temp>0.40) this.vy-=1.4*heatFactor*massFactor*dt;
+
+    for(let p of particles){
+      if(p.id<=this.id) continue;
+      const dx=this.x-p.x,dy=this.y-p.y;
+      const d=Math.sqrt(dx*dx+dy*dy)+0.001;
+      const nx2=dx/d,ny2=dy/d;
+      const minD=this.r+p.r;
+      if(d<minD){
+        const f=(minD-d)*0.3;
+        this.vx+=nx2*f*dt; this.vy+=ny2*f*dt;
+        p.vx-=nx2*f*dt;   p.vy-=ny2*f*dt;
+      } else {
+        const avgT=(this.temp+p.temp)*0.5;
+        const sizePenalty=1/Math.pow(this.clusterSize,0.6);
+        const heightFactor=clamp((this.y-CEIL)/(FLOOR-CEIL),0,1);
+        const coh=Math.pow(clamp(1-avgT/0.7,0,1),2)*sizePenalty*(1-heightFactor*0.6);
+        const cohR=minD*3.5;
+        if(d<cohR&&coh>0.01){
+          const f=coh*0.1*(1-d/cohR);
+          this.vx-=nx2*f*dt; this.vy-=ny2*f*dt;
+          p.vx+=nx2*f*dt;   p.vy+=ny2*f*dt;
+        }
+      }
+    }
+
+    const dragFrame=Math.pow(DRAG_SEC,dt/60)*airDragExtra;
+    this.vx*=dragFrame; this.vy*=dragFrame;
+
+    const noiseX=Math.sin(this.nox*1.0)*0.55+Math.sin(this.nox*1.618)*0.35+Math.sin(this.nox*2.414)*0.10;
+    const noiseY=Math.cos(this.noy*1.0)*0.55+Math.cos(this.noy*1.732)*0.35+Math.cos(this.noy*2.718)*0.10;
+    this.vx+=noiseX*0.015;
+    this.vy+=noiseY*0.05;
+
+    this.vx=clamp(this.vx,-3.0,3.0);
+    this.vy=clamp(this.vy,-5.0,5.0);
+
+    const hw=lampHW(this.y);
+    const wL=W/2-hw,wR=W/2+hw;
+    if(this.x-this.r<wL){this.x=wL+this.r;this.vx=Math.abs(this.vx)*0.4;}
+    if(this.x+this.r>wR){this.x=wR-this.r;this.vx=-Math.abs(this.vx)*0.4;}
+    if(this.y-this.r<CEIL){this.y=CEIL+this.r;this.vy=Math.abs(this.vy)*0.4;}
+    if(this.y+this.r>FLOOR){
+      this.y=FLOOR-this.r;
+      this.vy=this.temp>0.40?-Math.abs(this.vy)*0.12:-Math.abs(this.vy)*0.45;
+    }
+    this.x+=this.vx*dt;
+    this.y+=this.vy*dt;
+  }
+}
+
+function blobColor(t){
+  return[
+    Math.round(lerp(55,255,t)),
+    Math.round(lerp(8,lerp(22,88,t>.5?(t-.5)*2:0),t)),
+    Math.round(lerp(135,12,t))
+  ];
+}
+
+function drawMetaballs(particles){
+  const RES=3,threshold=15;
+  const cols=Math.ceil(W/RES)+2,rows=Math.ceil(H/RES)+2;
+  const field=new Float32Array(cols*rows);
+  const cR=new Float32Array(cols*rows);
+  const cG=new Float32Array(cols*rows);
+  const cB=new Float32Array(cols*rows);
+  for(let row=0;row<rows;row++){
+    for(let col=0;col<cols;col++){
+      const px=col*RES,py=row*RES;
+      let v=0,wr=0,wg=0,wb=0,ws=0;
+      for(let p of particles){
+        const dx=px-p.x,dy=py-p.y;
+        const c=(p.r*p.r*14)/(dx*dx+dy*dy+1);
+        v+=c;const w=c*c;
+        const[fr,fg,fb]=blobColor(p.temp);
+        wr+=fr*w;wg+=fg*w;wb+=fb*w;ws+=w;
+      }
+      const i=row*cols+col;field[i]=v;
+      if(ws>0){cR[i]=wr/ws;cG[i]=wg/ws;cB[i]=wb/ws;}
+    }
+  }
+  for(let row=0;row<rows-1;row++){
+    for(let col=0;col<cols-1;col++){
+      const i=row*cols+col,v=field[i];
+      if(v<threshold) continue;
+      const alpha=clamp((v-threshold)/28+0.68,0.68,0.94);
+      ctx.fillStyle=`rgba(${Math.round(cR[i])},${Math.round(cG[i])},${Math.round(cB[i])},${alpha.toFixed(2)})`;
+      ctx.fillRect(col*RES,row*RES,RES+1,RES+1);
+    }
+  }
+  for(let p of particles){
+    const[fr,fg,fb]=blobColor(p.temp);
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(${fr},${fg},${fb},0.82)`;ctx.fill();
+    ctx.beginPath();ctx.ellipse(p.x-p.r*.27,p.y-p.r*.29,p.r*.27,p.r*.15,-0.5,0,Math.PI*2);
+    ctx.fillStyle=`rgba(255,255,255,${(0.07+p.temp*0.06).toFixed(2)})`;ctx.fill();
+  }
+}
+
+function lampPath(c){
+  c.beginPath();const pts=[];
+  for(let i=0;i<=40;i++){const t=i/40,y=20+t*(H-40),hw=(W/2-10)*(0.6+0.4*Math.sin(t*Math.PI));pts.push([W/2-hw,y]);}
+  for(let i=40;i>=0;i--){const t=i/40,y=20+t*(H-40),hw=(W/2-10)*(0.6+0.4*Math.sin(t*Math.PI));pts.push([W/2+hw,y]);}
+  c.moveTo(pts[0][0],pts[0][1]);for(let p of pts)c.lineTo(p[0],p[1]);c.closePath();
+}
+
+let particles=[],heatFactor=0.1,numP=100,showAir=true;
+function initParticles(n){particles=Array.from({length:n},(_,i)=>new Particle(i));}
+initParticles(numP);
+initAir();
+
+let last=performance.now();
+function loop(now){
+  const dt=Math.min((now-last)/16,2.5);last=now;
+  ctx.clearRect(0,0,W,H);
+  ctx.save();lampPath(ctx);ctx.clip();
+
+  const bg=ctx.createLinearGradient(0,0,0,H);
+  bg.addColorStop(0,'rgba(4,1,18,0.97)');
+  bg.addColorStop(0.6,'rgba(8,3,24,0.95)');
+  bg.addColorStop(1,`rgba(${Math.round(36*heatFactor)},${Math.round(7*heatFactor)},4,0.97)`);
+  ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
+
+  const hg=ctx.createRadialGradient(W/2,H,0,W/2,H,140);
+  hg.addColorStop(0,`rgba(255,${Math.round(60*heatFactor)},0,${(0.26*heatFactor).toFixed(2)})`);
+  hg.addColorStop(1,'rgba(0,0,0,0)');
+  ctx.fillStyle=hg;ctx.fillRect(0,0,W,H);
+
+  updateAir(dt,heatFactor,particles);
+  drawAir(showAir);
+
+  for(let p of particles)p.update(dt,heatFactor,particles);
+  drawMetaballs(particles);
+
+  const sh=ctx.createLinearGradient(0,0,W,0);
+  sh.addColorStop(0,'rgba(255,255,255,0.07)');sh.addColorStop(0.15,'rgba(255,255,255,0.02)');
+  sh.addColorStop(0.85,'rgba(255,255,255,0.01)');sh.addColorStop(1,'rgba(255,255,255,0.055)');
+  ctx.fillStyle=sh;lampPath(ctx);ctx.fill();
+  ctx.restore();
+
+  lampPath(ctx);ctx.strokeStyle='rgba(255,255,255,0.15)';ctx.lineWidth=2;ctx.stroke();
+  ctx.beginPath();ctx.roundRect(W/2-52,H-22,104,18,6);ctx.fillStyle='#180900';ctx.fill();
+  ctx.strokeStyle='rgba(255,150,30,0.28)';ctx.lineWidth=1;ctx.stroke();
+  ctx.beginPath();ctx.ellipse(W/2,H-22,42,5,0,0,Math.PI*2);
+  ctx.fillStyle=`rgba(255,${Math.round(80*heatFactor)},0,${(0.4*heatFactor).toFixed(2)})`;ctx.fill();
+  ctx.beginPath();ctx.roundRect(W/2-28,8,56,16,4);ctx.fillStyle='#180900';ctx.fill();
+  ctx.strokeStyle='rgba(255,255,255,0.1)';ctx.lineWidth=1;ctx.stroke();
+
+  const avgT=particles.reduce((s,p)=>s+p.temp,0)/particles.length;
+  document.getElementById('status').textContent=avgT>0.52?'Rising':avgT<0.28?'Sinking':'Floating';
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+document.getElementById('heat').addEventListener('input',function(){heatFactor=+this.value;document.getElementById('heatv').textContent=heatFactor.toFixed(1);});
+document.getElementById('pcount').addEventListener('input',function(){numP=+this.value;document.getElementById('pv').textContent=numP;initParticles(numP);});
+document.getElementById('showAir').addEventListener('change',function(){showAir=this.checked;});
+</script>
